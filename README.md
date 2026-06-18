@@ -20,7 +20,7 @@ End-to-end flow for building a feature with these skills (see also [`WORKFLOW.md
 1. **Align** — If you have a codebase, use **grill-with-docs**; otherwise use **grill-me** to build shared language with the agent.
 2. **PRD** — In the same conversation, invoke **to-prd** to turn the discussion into a PRD.
 3. **Issues** — Invoke **to-issues** to break the plan into independently grabbable vertical slices.
-4. **Build** — Copy the `Suggested pickup order` from step 3, then invoke **tdd** for test-driven development on each slice.
+4. **Build** — Copy the `Suggested pickup order` from step 3, then invoke **implement** for each slice (it uses **tdd** inside).
 5. **Refactor** — If the code needs structural work, invoke **improve-codebase-architecture**.
 
 ## Keeping up to date
