@@ -1,6 +1,6 @@
 ---
 name: setup-matt-pocock-skills
-description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
+description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, domain doc layout, and optional Cursor coding-standard rules. Run once before first use of the other engineering skills.
 disable-model-invocation: true
 ---
 
@@ -11,6 +11,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Issue tracker** — where issues live (GitHub by default; local markdown is also supported out of the box)
 - **Triage labels** — the strings used for the five canonical triage roles
 - **Domain docs** — where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
+- **Coding standards** — optional Cursor rules in `.cursor/rules/` (code quality, docstrings, license compliance)
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -30,7 +31,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 
 ### 2. Present findings and ask
 
-Summarise what's present and what's missing. Then walk the user through the three decisions **one at a time** — present a section, get the user's answer, then move to the next. Don't dump all three at once.
+Summarise what's present and what's missing. Then walk the user through the four decisions **one at a time** — present a section, get the user's answer, then move to the next. Don't dump all four at once.
 
 Assume the user does not know what these terms mean. Each section starts with a short explainer (what it is, why these skills need it, what changes if they pick differently). Then show the choices and the default.
 
@@ -68,12 +69,27 @@ Confirm the layout:
 - **Single-context** — one `CONTEXT.md` + `docs/adr/` at the repo root. Most repos are this.
 - **Multi-context** — `CONTEXT-MAP.md` at the root pointing to per-context `CONTEXT.md` files (typically a monorepo).
 
+**Section D — Coding standards (Cursor rules).**
+
+> Explainer: Cursor rules are persistent coding standards the agent sees when editing matching files. Skills like `review` treat them as Standards sources alongside `CONTRIBUTING.md`. Seed templates ship with this skill — code quality thresholds, docstring/JSDoc conventions, and license compliance when adding dependencies. OrchestKit's visual-style rule is intentionally omitted (toolkit-specific emoji/ASCII vocabulary).
+
+Default: **install seed rules** if `.cursor/rules/` is empty or missing. If rules already exist, list them and ask whether to add the seeds (skip filenames that already exist), replace nothing without explicit approval, or skip entirely.
+
+Templates (in this skill's [rules/](./rules/) folder):
+
+- `code-quality.mdc` — function length, nesting depth, cyclomatic complexity
+- `docstring-standards.mdc` — Python docstrings and TypeScript/JSDoc for exported functions
+- `license-compliance.mdc` — dependency license checks (`alwaysApply: true`)
+
+Offer to tune `globs` in the templates for the repo's primary languages before writing.
+
 ### 3. Confirm and edit
 
 Show the user a draft of:
 
 - The `## Agent skills` block to add to `AGENTS.md` (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, `docs/agents/domain.md`
+- If installing coding standards: the list of `.mdc` files to write under `.cursor/rules/`
 
 Let them edit before writing.
 
@@ -102,7 +118,13 @@ The block:
 ### Domain docs
 
 [one-line summary of layout — "single-context" or "multi-context"]. See `docs/agents/domain.md`.
+
+### Coding standards
+
+[one-line summary — installed seed rules or "none"]. See `.cursor/rules/`.
 ```
+
+Include the **Coding standards** subsection only when the user chose to install seed rules.
 
 Then write the three docs files using the seed templates in this skill folder as a starting point:
 
@@ -114,6 +136,8 @@ Then write the three docs files using the seed templates in this skill folder as
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 
+If the user chose to install coding standards, create `.cursor/rules/` (if missing) and copy the agreed templates from [rules/](./rules/). Never overwrite an existing `.mdc` file unless the user explicitly asked to replace it.
+
 ### 5. Done
 
-Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` directly later — re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
+Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` and `.cursor/rules/*.mdc` directly later — re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.

@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests. Always branches from main, commits only session-touched files, and opens a PR when the cycle completes.
 ---
 
 # Test-Driven Development
@@ -42,6 +42,8 @@ RIGHT (vertical):
 
 ## Workflow
 
+**Session file tracking**: From the first edit onward, keep a running list of every file created or modified during this TDD session. At ship time, stage **only** those files — never `git add .` or unrelated dirty files.
+
 ### 1. Planning
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so that test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
@@ -58,7 +60,25 @@ Ask: "What should the public interface look like? Which behaviors are most impor
 
 **You can't test everything.** Confirm with the user exactly which behaviors matter most. Focus testing effort on critical paths and complex logic, not every possible edge case.
 
-### 2. Tracer Bullet
+### 2. Branch Setup
+
+After the plan is approved and **before** writing any test or implementation code:
+
+1. Resolve the default branch (`main`, or the repo default from `git symbolic-ref refs/remotes/origin/HEAD`).
+2. Create a new branch from that branch — never commit TDD work on `main`:
+
+```bash
+git fetch origin <default-branch>
+git checkout <default-branch>
+git pull --ff-only origin <default-branch>
+git checkout -b <branch-name>
+```
+
+3. Pick a descriptive branch name (e.g. `feat/cart-checkout`, `fix/validate-thickness`). Use an issue number when one exists.
+
+If the working tree has unrelated uncommitted changes, stash or leave them behind — do not carry them onto the new branch.
+
+### 3. Tracer Bullet
 
 Write ONE test that confirms ONE thing about the system:
 
@@ -69,7 +89,7 @@ GREEN: Write minimal code to pass → test passes
 
 This is your tracer bullet - proves the path works end-to-end.
 
-### 3. Incremental Loop
+### 4. Incremental Loop
 
 For each remaining behavior:
 
@@ -85,7 +105,7 @@ Rules:
 - Don't anticipate future tests
 - Keep tests focused on observable behavior
 
-### 4. Refactor
+### 5. Refactor
 
 After all tests pass, look for [refactor candidates](refactoring.md):
 
@@ -96,6 +116,34 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 - [ ] Run tests after each refactor step
 
 **Never refactor while RED.** Get to GREEN first.
+
+### 6. Ship
+
+Mandatory when the TDD cycle is complete (all tests green, refactor done). Skip only if the user explicitly says not to commit or open a PR.
+
+1. **Confirm session files** — review the tracked list; add any file touched during refactor if missing.
+2. **Inspect** — run `git status` and `git diff` in parallel. Verify no secrets (`.env`, credentials) are in session files.
+3. **Stage session files only**:
+
+```bash
+git add <session-file-1> <session-file-2> ...
+```
+
+Do not stage unrelated changes. Do not use `git add .` or `git add -A`.
+
+4. **Commit** — 1–2 sentences focused on **why** (behavior delivered), matching repo tone from `git log`:
+
+```bash
+git commit -m "$(cat <<'EOF'
+Concise message explaining why.
+
+EOF
+)"
+```
+
+5. **Push and open PR** — follow the `/commit-push-pr` skill end-to-end: push the branch, then create the PR via GitHub MCP. Return the PR URL to the user.
+
+PR title and body should reflect the behaviors tested and delivered in this session — use the TDD plan and acceptance criteria from planning.
 
 ## Checklist Per Cycle
 
