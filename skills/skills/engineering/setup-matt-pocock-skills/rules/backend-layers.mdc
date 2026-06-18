@@ -1,0 +1,24 @@
+---
+description: FastAPI layer separation — routers delegate to services; no DB in routers
+globs: **/*.py
+alwaysApply: false
+---
+
+# Backend Layer Separation
+
+## Routers
+
+- Parse HTTP input, call a service, return a response or raise HTTPException.
+- No database `Session`, no SQL queries, no business rules in route handlers.
+- Use `Depends()` for auth, pagination, and service injection.
+
+## Services
+
+- Own business logic and transaction boundaries.
+- Accept primitives or Pydantic schemas; return domain results or raise domain exceptions.
+- Enqueue background jobs from here, not from routers.
+
+## Repositories
+
+- Persistence only — queries and mapping to/from models.
+- One repository per aggregate or bounded context when the codebase uses that pattern.

@@ -25,6 +25,7 @@ Re-apply these edits if upstream overwrites them:
 - [CONTEXT.md](./CONTEXT.md) — "loaded by Cursor"
 - [docs/invocation.md](./docs/invocation.md) — Cursor @-mention behavior
 - [skills/engineering/setup-matt-pocock-skills/SKILL.md](./skills/engineering/setup-matt-pocock-skills/SKILL.md) — writes `AGENTS.md`, reads `.cursor/rules/`
+- [skills/engineering/fullstack/](./skills/engineering/fullstack/) — Cursor-fork reference bucket for fullstack layer conventions (not user-invoked)
 - [skills/misc/README.md](./skills/misc/README.md) — `git-guardrails-cursor` and `sync-matt-pocock-skills-cursor` entries
 - [CHANGELOG.md](./CHANGELOG.md) — Unreleased Cursor fork breaking-changes section
 

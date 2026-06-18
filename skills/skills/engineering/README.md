@@ -15,6 +15,10 @@ Reachable only when you type them (`disable-model-invocation: true`).
 - **[to-prd](./to-prd/SKILL.md)** — Turn the current conversation into a PRD and publish it to the issue tracker.
 - **[prototype](./prototype/SKILL.md)** — Build a throwaway prototype — a runnable terminal app for state/logic questions, or several toggleable UI variations.
 
+## Reference (not user-invoked)
+
+- **[fullstack/](./fullstack/README.md)** — On-demand layer conventions for FastAPI + TypeScript repos. Loaded via context pointers in `implement`, `tdd`, and `to-issues` — not a skill, zero idle context load.
+
 ## Model-invoked
 
 Model- or user-reachable (rich trigger phrasing so the model can reach for them).

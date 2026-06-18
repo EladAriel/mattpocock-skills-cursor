@@ -1,19 +1,27 @@
 ---
 name: git-guardrails-cursor
-description: Set up Cursor hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Cursor.
+description: Set up Cursor hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) and optional destructive database commands before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Cursor.
 ---
 
 # Setup Git Guardrails
 
-Sets up a `beforeShellExecution` hook that intercepts and blocks dangerous git commands before the agent runs them.
+Sets up `beforeShellExecution` hooks that intercept dangerous shell commands before the agent runs them.
 
 ## What Gets Blocked
+
+**Git** ([scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)):
 
 - `git push` (all variants including `--force`)
 - `git reset --hard`
 - `git clean -f` / `git clean -fd`
 - `git branch -D`
 - `git checkout .` / `git restore .`
+
+**Database (optional)** ([scripts/block-dangerous-db.sh](scripts/block-dangerous-db.sh)):
+
+- `drop database` / `DROP DATABASE`
+- `truncate table` / `TRUNCATE TABLE`
+- `DROP TABLE`
 
 When blocked, the agent sees a message telling it that it does not have authority to run these commands.
 
@@ -23,16 +31,19 @@ When blocked, the agent sees a message telling it that it does not have authorit
 
 Ask the user: install for **this project only** (`.cursor/hooks.json`) or **all projects** (`~/.cursor/hooks.json`)?
 
-### 2. Copy the hook script
+### 2. Copy the hook scripts
 
-The bundled script is at: [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh)
+Bundled scripts:
 
-Copy it to the target location based on scope:
+- [scripts/block-dangerous-git.sh](scripts/block-dangerous-git.sh) — always install
+- [scripts/block-dangerous-db.sh](scripts/block-dangerous-db.sh) — ask if the user wants DB protection (recommended for repos with a database)
 
-- **Project**: `.cursor/hooks/block-dangerous-git.sh`
-- **Global**: `~/.cursor/hooks/block-dangerous-git.sh`
+Copy to the target location based on scope:
 
-Make it executable with `chmod +x`.
+- **Project**: `.cursor/hooks/block-dangerous-git.sh` (and `.cursor/hooks/block-dangerous-db.sh` if opted in)
+- **Global**: `~/.cursor/hooks/block-dangerous-git.sh` (and `~/.cursor/hooks/block-dangerous-db.sh` if opted in)
+
+Make each copied script executable with `chmod +x`.
 
 ### 3. Add hook to hooks.json
 
@@ -48,11 +59,17 @@ Create or merge into the appropriate hooks file:
       {
         "command": ".cursor/hooks/block-dangerous-git.sh",
         "failClosed": true
+      },
+      {
+        "command": ".cursor/hooks/block-dangerous-db.sh",
+        "failClosed": true
       }
     ]
   }
 }
 ```
+
+Omit the `block-dangerous-db.sh` entry if the user skipped DB protection.
 
 **Global** (`~/.cursor/hooks.json`):
 
@@ -63,6 +80,10 @@ Create or merge into the appropriate hooks file:
     "beforeShellExecution": [
       {
         "command": "./hooks/block-dangerous-git.sh",
+        "failClosed": true
+      },
+      {
+        "command": "./hooks/block-dangerous-db.sh",
         "failClosed": true
       }
     ]
