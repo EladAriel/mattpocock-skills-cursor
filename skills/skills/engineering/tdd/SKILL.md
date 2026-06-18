@@ -64,6 +64,8 @@ Ask: "What should the public interface look like? Which behaviors are most impor
 
 ### 2. Branch Setup
 
+> **When invoked via `/implement`, skip this section.** `/implement` runs pre-flight and branch creation before calling `/tdd`.
+
 After the plan is approved and **before** writing any test or implementation code:
 
 1. Resolve the default branch (`main`, or the repo default from `git symbolic-ref refs/remotes/origin/HEAD`).
@@ -120,6 +122,8 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 **Never refactor while RED.** Get to GREEN first.
 
 ### 6. Ship
+
+> **When invoked via `/implement`, skip this section.** `/implement` runs `/simplify`, HITL verification, and `/commit-push-pr` after `/review`.
 
 Mandatory when the TDD cycle is complete (all tests green, refactor done). Skip only if the user explicitly says not to commit or open a PR.
 

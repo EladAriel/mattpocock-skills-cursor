@@ -8,6 +8,7 @@ Issues and PRDs for this repo live as markdown files in `.scratch/`.
 - The PRD is `.scratch/<feature-slug>/PRD.md`
 - Implementation issues are `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`
 - Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
+- `Status: completed` — issue implemented and PR merged; set by `/implement` wrap-up
 - Comments and conversation history append to the bottom of the file under a `## Comments` heading
 
 ## When a skill says "publish to the issue tracker"
