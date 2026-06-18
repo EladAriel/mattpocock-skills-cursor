@@ -7,8 +7,8 @@ A Cursor-only fork of [mattpocock/skills](https://github.com/mattpocock/skills).
 The skill library lives in [`skills/`](skills/). See [`skills/README.md`](skills/README.md) for the quickstart:
 
 ```bash
-git clone <this-repo-url>
-cd skills && ./scripts/link-skills-cursor.sh
+git clone https://github.com/EladAriel/mattpocock-skills-cursor.git
+cd mattpocock-skills-cursor/skills && ./scripts/link-skills-cursor.sh
 ```
 
 Then reload Cursor and run **setup-matt-pocock-skills** in your project.
