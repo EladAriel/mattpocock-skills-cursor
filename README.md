@@ -51,10 +51,15 @@ Reload Cursor again.
 
 ### Syncing upstream (fork maintainers)
 
-To pull new skills from [mattpocock/skills](https://github.com/mattpocock/skills) into this fork:
+Upstream [mattpocock/skills](https://github.com/mattpocock/skills) is merged into this fork under the `skills/` subtree. Do **not** run a bare `git pull` on `main` — that skips Cursor-specific fixes documented in [`skills/FORK-DELTA.md`](skills/FORK-DELTA.md).
 
-1. Open this repo in Cursor.
-2. Invoke **sync-matt-pocock-skills-cursor** (`@sync-matt-pocock-skills-cursor`).
-3. Review the upstream changelog summary, confirm the merge, then reload Cursor.
+To pull new upstream changes:
+
+1. **Open this repo in Cursor** — the workspace root must be this fork (the folder with this `README.md` and the `skills/` subdirectory), not an app project that only links skills.
+2. **Invoke the sync skill** — in chat, type `@sync-matt-pocock-skills-cursor` (or `/sync-matt-pocock-skills-cursor` if you use slash commands). The agent runs preflight checks (clean tree, `main` branch, `upstream` remote), fetches upstream, and shows commits on `upstream/main` that are not yet in this fork.
+3. **Review before merging** — read the upstream commit summary the agent presents. Confirm only when you are ready to merge. The agent then runs `git subtree pull --prefix=skills upstream main`, re-applies Cursor fork invariants from FORK-DELTA, and updates the last-synced SHA in [`skills/FORK.md`](skills/FORK.md).
+4. **Reload Cursor** (`Cmd/Ctrl+Shift+P` → **Developer: Reload Window**). If new skills were added, re-run `./scripts/link-skills-cursor.sh` from `skills/` (see above).
+
+The sync skill does not commit or push unless you explicitly ask.
 
 Fork tracking: [`skills/FORK.md`](skills/FORK.md) · Cursor deltas: [`skills/FORK-DELTA.md`](skills/FORK-DELTA.md)

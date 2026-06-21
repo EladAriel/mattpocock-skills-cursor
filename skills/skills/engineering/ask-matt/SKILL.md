@@ -23,8 +23,6 @@ The route most work travels. You have an idea and want it built.
    - **Yes** → **`/to-prd`** (turn the thread into a PRD) → **`/to-issues`** (split the PRD into independently-grabbable issues). Because the issues are independent, **clear context between each one**: start a fresh session per issue and kick off **`/implement`** by passing it the PRD and the single issue to work on.
    - **No** → **`/implement`** right here, in the same context window.
 
-   **Fullstack apps** (FastAPI + Next.js, etc.): same flow — `/implement` uses `/tdd` inside each issue. Layer conventions live in `fullstack/references/` (on-demand, not a separate skill). No `/ork:*` commands.
-
 ### Context hygiene
 
 Keep steps 1–3 in **one unbroken context window** — don't compact or clear until after `/to-issues` — so the grilling, PRD, and issues all build on the same thinking. Each `/implement` then starts fresh, working from the issue.

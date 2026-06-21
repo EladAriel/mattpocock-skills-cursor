@@ -10,6 +10,8 @@
 
 # Skills For Real Engineers
 
+[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+
 My agent skills that I use every day to do real engineering - not vibe coding.
 
 Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
@@ -25,7 +27,7 @@ If you want to keep up with changes to these skills, and any new ones I create, 
 1. Clone this repository:
 
 ```bash
-git clone <repo-url> ~/mattpocock-skills-cursor
+git clone https://github.com/EladAriel/mattpocock-skills-cursor.git ~/mattpocock-skills-cursor
 cd ~/mattpocock-skills-cursor/skills
 ```
 
@@ -48,13 +50,11 @@ cd ~/mattpocock-skills-cursor/skills
    - Ask you what labels you apply to tickets when you triage them (`triage` uses labels)
    - Ask you where domain docs live (`CONTEXT.md`, ADRs)
 
-5. You're ready to go.
-
-To update later: invoke **sync-matt-pocock-skills-cursor** in Cursor (see the repo root `README.md`). Do not bare `git pull` on `main` without re-applying Cursor deltas per [FORK-DELTA.md](./FORK-DELTA.md). Symlinks keep linked skills current after a sync. To link only specific skills, symlink individual folders from `skills/skills/` into `~/.cursor/skills/` manually.
+**Keeping up to date:** pull this fork and reload Cursor. For upstream sync (fork maintainers), use `@sync-matt-pocock-skills-cursor` — do not run a bare `git pull` on upstream mattpocock/skills. See [FORK.md](./FORK.md).
 
 ## Why These Skills Exist
 
-I built these skills as a way to fix common failure modes I see with Cursor and other coding agents.
+I built these skills as a way to fix common failure modes I see with Claude Code, Codex, and other coding agents.
 
 ### #1: The Agent Didn't Do What I Want
 

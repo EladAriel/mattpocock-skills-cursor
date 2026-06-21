@@ -9,6 +9,10 @@
 - **Renamed `git-guardrails-claude-code` → `git-guardrails-cursor`.** Uses Cursor `beforeShellExecution` hooks instead of Claude Code `PreToolUse` hooks.
 - **`setup-matt-pocock-skills`** now writes per-repo config to `AGENTS.md` (Cursor convention) instead of `CLAUDE.md`.
 
+### Upstream sync (2026-06-21)
+
+Merged upstream through `6eeb81b` — notable additions include `ask-matt`, `writing-great-skills`, `domain-modeling`, `codebase-design`, `resolving-merge-conflicts`, `teach` assets reuse, triage PR surface, and user-invoked / model-invoked taxonomy refresh.
+
 ## 1.0.1
 
 ### Patch Changes

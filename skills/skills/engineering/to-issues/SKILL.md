@@ -34,8 +34,6 @@ Break the plan into **tracer bullet** issues. Each issue is a thin vertical slic
 
 </vertical-slice-rules>
 
-**Fullstack plans** (FastAPI + TypeScript, etc.): read [fullstack/references/layer-order.md](../fullstack/references/layer-order.md). Slices stay vertical — layer order applies *inside* each issue, not across issues. Example: slice 1 = thinnest read path (model + service + GET route + list UI + one pytest + one Vitest); slice 2 expands the write path. A foundation-only slice (e.g. shared auth middleware) is allowed only when every downstream slice is blocked.
-
 ### 4. Quiz the user
 
 Present the proposed breakdown as a numbered list. For each slice, show:
