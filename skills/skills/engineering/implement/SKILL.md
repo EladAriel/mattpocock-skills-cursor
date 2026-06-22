@@ -39,7 +39,7 @@ Read the PRD and the single issue the user passed in.
 
 Use `/tdd` where possible, at pre-agreed seams. When invoking `/tdd` from this skill, **skip TDD's branch setup (section 2) and ship (section 6)** — this skill owns those phases.
 
-**Fullstack repos** (FastAPI + TypeScript, etc.): if `docs/agents/stack-profile.md` exists, read it first. Then read [fullstack/references/layer-order.md](../fullstack/references/layer-order.md) once per issue, and the layer-specific reference for what you're building now (`backend.md`, `api.md`, `jobs.md`, `frontend.md`).
+**Fullstack repos** (FastAPI + TypeScript, etc.): if `docs/agents/stack-profile.md` exists, read it first. Then read [fullstack/references/layer-order.md](../fullstack/references/layer-order.md) once per issue, and the layer-specific reference for what you're building now (`backend.md`, `api.md`, `jobs.md`, `frontend.md`). For framework API patterns, use [fullstack/references/wiki-map.md](../fullstack/references/wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 

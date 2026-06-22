@@ -13,6 +13,12 @@
 
 Merged upstream through `6eeb81b` — notable additions include `ask-matt`, `writing-great-skills`, `domain-modeling`, `codebase-design`, `resolving-merge-conflicts`, `teach` assets reuse, triage PR surface, and user-invoked / model-invoked taxonomy refresh.
 
+### Fullstack LLM Wiki integration (2026-06-22)
+
+- **`fullstack-llm-wiki-navigator`** — model-invoked skill for local framework documentation in the [Fullstack LLM Wiki](https://github.com/EladAriel/fullstack-llm-wiki).
+- **`fullstack/references/`** — slimmed to Matt workflow/policy + wiki pointers; framework API detail removed.
+- **`setup-matt-pocock-skills`** — optional Section F to clone the wiki into app repos.
+
 ## 1.0.1
 
 ### Patch Changes

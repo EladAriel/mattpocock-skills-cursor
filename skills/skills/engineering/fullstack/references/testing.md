@@ -13,23 +13,10 @@ For each behavior in the slice, tracer-bullet through layers:
 3. **Frontend component test** (Vitest/Jest + Testing Library) — render with MSW mocking the frozen API response.
 4. **Optional E2E** (Playwright) — only for critical paths or cross-slice flows; not every slice.
 
-## Backend patterns
-
-- Fixtures: `conftest.py` for DB session, async client, factory helpers.
-- `@pytest.mark.parametrize` for input variants.
-- Integration tests: prefer testcontainers or a dedicated test DB over mocking the database in integration tests.
-
-## Frontend patterns
-
-- MSW handlers colocated with tests or a shared `mocks/` folder.
-- `renderHook` for TanStack Query hooks.
-- `test.each` / `it.each` for variant tables.
-
-## Gaps
-
-- **Beanie/SQLModel:** use Context7 for fixture patterns; keep tests on public interfaces.
-- **Jest vs Vitest:** default Vitest; if repo uses Jest, same structure applies.
-
 ## Ship
 
 Follow `tdd` §6 — session files only, commit, PR. Run full suite once at end of slice, not after every single test during development.
+
+## Framework patterns
+
+For pytest fixtures, async test setup, Jest/Vitest patterns, and MSW detail, search the llm wiki via [`wiki-map.md`](./wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.

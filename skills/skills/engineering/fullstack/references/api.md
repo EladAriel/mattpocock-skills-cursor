@@ -15,16 +15,7 @@ Routers are thin. Business logic stays in services — see `backend.md`.
 
 ## Error shape (RFC 9457 Problem Details)
 
-Prefer consistent error bodies:
-
-```json
-{
-  "type": "https://example.com/errors/not-found",
-  "title": "Not Found",
-  "status": 404,
-  "detail": "User 42 does not exist"
-}
-```
+Prefer consistent error bodies with `type`, `title`, `status`, and `detail` fields.
 
 Map domain exceptions in a service layer to HTTP status in the router or a shared exception handler — not scattered `try/except` per route.
 
@@ -43,3 +34,7 @@ Map domain exceptions in a service layer to HTTP status in the router or a share
 ## Contract freeze
 
 Before frontend work on this slice: response shapes are stable, OpenAPI reflects reality, and shared TypeScript/Zod types can be generated or hand-written without guesswork.
+
+## Framework patterns
+
+For FastAPI route, DI, and error-handler detail, search the llm wiki via [`wiki-map.md`](./wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.

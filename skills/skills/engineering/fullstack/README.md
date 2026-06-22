@@ -2,6 +2,8 @@
 
 On-demand layer conventions for FastAPI + TypeScript fullstack repos. **Not a skill** — no `SKILL.md`, zero idle context load. Existing skills reach these files via context pointers when building fullstack work.
 
+Framework API patterns live in the [Fullstack LLM Wiki](https://github.com/EladAriel/fullstack-llm-wiki), accessed via the [`fullstack-llm-wiki-navigator`](../fullstack-llm-wiki-navigator/SKILL.md) skill and [`wiki-map.md`](./references/wiki-map.md).
+
 ## Conflict rule
 
 **Matt's flow wins** on orchestration and slice shape (`grill-with-docs` → `to-prd` → `to-issues` → `implement` / `tdd`). These references only govern **layer order inside one vertical slice**.
@@ -10,6 +12,7 @@ On-demand layer conventions for FastAPI + TypeScript fullstack repos. **Not a sk
 |-------|-------|
 | How issues are split | `to-issues` — vertical tracer bullets |
 | Order inside one issue | References below |
+| Framework API patterns | Fullstack LLM Wiki via navigator skill |
 | Test philosophy | `tdd` — RED→GREEN tracer bullets, never horizontal test batches |
 
 ## References
@@ -17,6 +20,7 @@ On-demand layer conventions for FastAPI + TypeScript fullstack repos. **Not a sk
 | File | Read when |
 |------|-----------|
 | [references/layer-order.md](./references/layer-order.md) | Starting a fullstack issue or breaking a plan into slices |
+| [references/wiki-map.md](./references/wiki-map.md) | Need framework/library documentation |
 | [references/backend.md](./references/backend.md) | Models, migrations, services, repositories |
 | [references/api.md](./references/api.md) | Routes, validation, error shapes, versioning |
 | [references/jobs.md](./references/jobs.md) | Background work, queues, async tasks |

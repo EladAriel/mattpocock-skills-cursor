@@ -48,7 +48,7 @@ RIGHT (vertical):
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so that test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
-**Fullstack repos:** if `docs/agents/stack-profile.md` exists, read it. Then read [fullstack/references/testing.md](../fullstack/references/testing.md) for within-slice test order (service before route before UI). Matt's anti-pattern — horizontal test batches — still applies; this only orders layers inside one vertical slice.
+**Fullstack repos:** if `docs/agents/stack-profile.md` exists, read it. Then read [fullstack/references/testing.md](../fullstack/references/testing.md) for within-slice test order (service before route before UI). Matt's anti-pattern — horizontal test batches — still applies; this only orders layers inside one vertical slice. For pytest/Jest fixture patterns, use [fullstack/references/wiki-map.md](../fullstack/references/wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.
 
 Before writing any code:
 

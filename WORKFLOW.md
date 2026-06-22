@@ -17,6 +17,7 @@ For **FastAPI + TypeScript** apps (Next.js frontend, pytest + Vitest). Follow th
 Run **`setup-matt-pocock-skills`** before your first feature. Opt in to:
 
 - **Stack profile** → `docs/agents/stack-profile.md` (paths, ORM choice: SQLAlchemy, SQLModel, or Beanie)
+- **Fullstack LLM Wiki** → `fullstack-llm-wiki/` (local framework docs; clone via setup Section F)
 - **Cursor rules** → `backend-layers.mdc`, `code-quality.mdc`, etc.
 - Optionally **`git-guardrails-cursor`** → blocks destructive git + DB commands
 
@@ -42,6 +43,7 @@ Copy the `Suggested pickup order` from step 3. For **each issue**, start a **new
 1. `docs/agents/stack-profile.md` (if present)
 2. `fullstack/references/layer-order.md`
 3. The layer-specific reference for what you're building now
+4. For framework API patterns → `fullstack/references/wiki-map.md` + `fullstack-llm-wiki-navigator` skill
 
 **Within-slice layer order** (one behavior at a time via TDD):
 
@@ -52,6 +54,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 | Layer | Reference |
 |-------|-----------|
+| Framework docs (FastAPI, SQLAlchemy, Next.js, pytest, etc.) | [`wiki-map.md`](skills/skills/engineering/fullstack/references/wiki-map.md) + `fullstack-llm-wiki-navigator` |
 | Models, migrations, services (SQLAlchemy / SQLModel / Beanie) | [`backend.md`](skills/skills/engineering/fullstack/references/backend.md) |
 | Routes, validation, errors, `/api/v1/` | [`api.md`](skills/skills/engineering/fullstack/references/api.md) |
 | Background jobs (Celery, ARQ, BackgroundTasks) | [`jobs.md`](skills/skills/engineering/fullstack/references/jobs.md) |

@@ -13,6 +13,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Domain docs** — where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
 - **Coding standards** — optional Cursor rules in `.cursor/rules/` (code quality, docstrings, license compliance, backend layers)
 - **Stack profile** — optional `docs/agents/stack-profile.md` for fullstack repos (paths, test runners)
+- **Fullstack LLM Wiki** — optional `fullstack-llm-wiki/` clone for local framework documentation
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
@@ -32,7 +33,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 
 ### 2. Present findings and ask
 
-Summarise what's present and what's missing. Then walk the user through the five decisions **one at a time** — present a section, get the user's answer, then move to the next. Don't dump all five at once.
+Summarise what's present and what's missing. Then walk the user through the decisions **one at a time** — present a section, get the user's answer, then move to the next. Don't dump all sections at once.
 
 Assume the user does not know what these terms mean. Each section starts with a short explainer (what it is, why these skills need it, what changes if they pick differently). Then show the choices and the default.
 
@@ -91,6 +92,18 @@ Offer to tune `globs` in the templates for the repo's primary languages before w
 
 Default: **skip** unless the repo is clearly fullstack (e.g. FastAPI + Next.js). If yes, propose writing `docs/agents/stack-profile.md` from the seed template — backend framework, ORM, directory paths, API prefix, frontend framework, test runners (pytest + Vitest by default).
 
+**Section F — Fullstack LLM Wiki (optional).**
+
+> Explainer: Framework API docs (FastAPI, SQLAlchemy, Next.js, etc.) live in a separate local wiki repo. The `fullstack-llm-wiki-navigator` skill reads it when you build. Clone it once per app repo. Only offer this when the user chose a stack profile in Section E.
+
+Default: **clone** if the repo is clearly fullstack and `fullstack-llm-wiki/` does not already exist:
+
+```bash
+git clone https://github.com/EladAriel/fullstack-llm-wiki.git fullstack-llm-wiki
+```
+
+If `fullstack-llm-wiki/` already exists, note it and skip. If the user declines, skip — agents will prompt them to clone when framework docs are needed.
+
 ### 3. Confirm and edit
 
 Show the user a draft of:
@@ -98,6 +111,7 @@ Show the user a draft of:
 - The `## Agent skills` block to add to `AGENTS.md` (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, `docs/agents/domain.md`
 - If installing a stack profile: the contents of `docs/agents/stack-profile.md`
+- If cloning the wiki: confirm `fullstack-llm-wiki/` will be created (or already exists)
 - If installing coding standards: the list of `.mdc` files to write under `.cursor/rules/`
 
 Let them edit before writing.
@@ -135,11 +149,17 @@ The block:
 ### Stack profile
 
 [one-line summary — fullstack paths and test runners, or "not applicable"]. See `docs/agents/stack-profile.md`.
+
+### Fullstack LLM Wiki
+
+[one-line summary — cloned at `fullstack-llm-wiki/` or "not installed"]. See `docs/agents/wiki.md`.
 ```
 
 Include the **Coding standards** subsection only when the user chose to install seed rules.
 
 Include the **Stack profile** subsection only when the user chose to write `docs/agents/stack-profile.md`.
+
+Include the **Fullstack LLM Wiki** subsection only when the user chose to clone the wiki or it already exists.
 
 Then write the three docs files using the seed templates in this skill folder as a starting point:
 
@@ -153,8 +173,14 @@ For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch us
 
 If the user chose a stack profile, write `docs/agents/stack-profile.md` from [stack-profile.md](./stack-profile.md), filled in from exploration (actual paths in the repo).
 
+If the user chose to clone the wiki (or it already exists), write `docs/agents/wiki.md` from [wiki.md](./wiki.md). If cloning, run:
+
+```bash
+git clone https://github.com/EladAriel/fullstack-llm-wiki.git fullstack-llm-wiki
+```
+
 If the user chose to install coding standards, create `.cursor/rules/` (if missing) and copy the agreed templates from [rules/](./rules/). Never overwrite an existing `.mdc` file unless the user explicitly asked to replace it.
 
 ### 5. Done
 
-Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` and `.cursor/rules/*.mdc` directly later — re-running this skill is only necessary if they want to switch issue trackers, update the stack profile, or restart from scratch.
+Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` and `.cursor/rules/*.mdc` directly later — re-running this skill is only necessary if they want to switch issue trackers, update the stack profile, install the wiki, or restart from scratch.

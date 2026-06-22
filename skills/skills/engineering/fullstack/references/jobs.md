@@ -23,3 +23,7 @@ Default lean choice for FastAPI: **ARQ** for async workers; **BackgroundTasks** 
 ## When to skip
 
 If the slice completes within request time (e.g. sending one email with a provider SDK), prefer synchronous service call or `BackgroundTasks` — don't reach for Celery prematurely.
+
+## Framework patterns
+
+For FastAPI `BackgroundTasks` and Redis detail, search the llm wiki via [`wiki-map.md`](./wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.

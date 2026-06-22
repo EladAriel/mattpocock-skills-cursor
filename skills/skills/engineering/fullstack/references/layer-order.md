@@ -23,6 +23,8 @@ Tests follow `testing.md` — tracer-bullet RED→GREEN per behavior, not a batc
 7. **Frontend** — Zod types mirroring API, TanStack Query hooks, UI. See `frontend.md`.
 8. **Tests** — within-slice order in `testing.md`; one behavior at a time via `/tdd`.
 
+For framework-specific patterns at each layer, consult the llm wiki via [`wiki-map.md`](./wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.
+
 ## Slice examples
 
 **Slice 1 — thinnest read path:** model + migration → list service → GET route → list UI + one pytest integration + one Vitest component test.

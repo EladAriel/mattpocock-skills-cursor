@@ -1,7 +1,9 @@
 # Attribution
 
-Layer conventions in `references/` are **rewritten summaries** distilled from [OrchestKit](https://github.com/yonatangross/orchestkit) (v8.50.0 docs at [orchestkit.yonyon.ai](https://orchestkit.yonyon.ai)).
+Within-slice **workflow and layer conventions** in `references/` are distilled from [OrchestKit](https://github.com/yonatangross/orchestkit) (v8.50.0 docs at [orchestkit.yonyon.ai](https://orchestkit.yonyon.ai)).
 
-This repo does **not** install or depend on OrchestKit. When Matt skills and these references conflict, **Matt skills win**.
+**Framework API patterns** (FastAPI, SQLAlchemy, Next.js, etc.) come from the [Fullstack LLM Wiki](https://github.com/EladAriel/fullstack-llm-wiki), accessed via the `fullstack-llm-wiki-navigator` skill — not duplicated in this repo.
 
-OrchestKit is not vendored wholesale. Only patterns relevant to the Matt vertical-slice + TDD flow are summarized here. Verify OrchestKit's license before copying any additional material from upstream.
+This repo does **not** install or depend on OrchestKit or the wiki. When Matt skills and these references conflict, **Matt skills win**.
+
+Verify OrchestKit's license before copying any additional material from upstream.
