@@ -48,7 +48,18 @@ RIGHT (vertical):
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so that test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
-**Fullstack repos:** if `docs/agents/stack-profile.md` exists, read it. Then read [fullstack/references/testing.md](../fullstack/references/testing.md) for within-slice test order (service before route before UI). Matt's anti-pattern — horizontal test batches — still applies; this only orders layers inside one vertical slice. For pytest/Jest fixture patterns, use [fullstack/references/wiki-map.md](../fullstack/references/wiki-map.md) and the `fullstack-llm-wiki-navigator` skill.
+**Fullstack repos:** if `docs/agents/stack-profile.md` exists, read it. Then read [fullstack/references/testing.md](../fullstack/references/testing.md) for within-slice test order (service before route before UI). Matt's anti-pattern — horizontal test batches — still applies; this only orders layers inside one vertical slice. For framework or library API questions, follow **Framework documentation fallback** below.
+
+#### Framework documentation fallback
+
+When a framework or library API question arises, follow this chain **sequentially** — do not query wiki and Context7 in parallel for the same question.
+
+1. **Wiki** — Run `/fullstack-llm-wiki-navigator` using [fullstack/references/wiki-map.md](../fullstack/references/wiki-map.md). Navigate entry index → directory index → most specific page. **Done when** the question is answered, or after confirming the wiki is missing or the topic is not covered in the relevant indexes.
+2. **Context7** — Only if step 1 did not answer. Check session MCP availability: look for a Context7 server (`user-context7` or `context7`) exposing `resolve-library-id` and `query-docs`. Read tool descriptors under `mcps/<server>/tools/` before calling. Call `resolve-library-id` then `query-docs` (respect per-tool call limits). **Done when** the question is answered, or Context7 is unavailable or has no relevant library.
+3. **Other documentation MCPs** — Only if steps 1–2 did not answer. Scan other **enabled documentation MCP servers** in the session (e.g. `user-docs-langchain` for LangChain/LangGraph). Read each server's tool descriptors; pick the best-matching server for the topic. **Done when** the question is answered, or no doc MCP is available or relevant.
+4. **Model knowledge** — Last resort. Explicitly state that the wiki, Context7, and other doc MCPs did not cover the question; answer from general knowledge and mark it as unverified against project docs.
+
+Always cite the source used (wiki file path, Context7 library ID, or MCP server name). When wiki metadata shows staleness, mention it.
 
 Before writing any code:
 

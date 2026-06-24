@@ -27,8 +27,13 @@ Or run `setup-matt-pocock-skills` and opt in to the Fullstack LLM Wiki (Section 
 
 ## Workflow
 
-1. Identify the framework wiki directory from `frameworks/index.md` or the nearest category index (`frameworks/backend/index.md`, `frameworks/db/index.md`, `frameworks/ui/index.md`, `frameworks/test/index.md`).
+1. Identify the framework wiki directory.
+   - Use `frameworks/index.md` to choose the category and framework.
+   - AI examples: LangChain uses `frameworks/ai/langchain/`, LangGraph uses `frameworks/ai/langgraph/`, Langfuse uses `frameworks/ai/langfuse/`, Model Context Protocol uses `frameworks/ai/modelcontextprotocol/`, and Ragas uses `frameworks/ai/ragas/`.
+   - Other examples: FastAPI uses `frameworks/backend/fastapi/`, React uses `frameworks/ui/react/`, and SQLAlchemy uses `frameworks/db/sqlalchemy/`.
 2. Open the framework root index first.
+   - For Model Context Protocol, read `frameworks/ai/modelcontextprotocol/index.md` from the wiki root.
+   - For FastAPI, read `frameworks/backend/fastapi/index.md` from the wiki root.
 3. Read the status metadata.
    - Note source repo, branch, docs path, source commit, source commit date, and generated time.
 4. Use the root index to choose the closest content area.
@@ -55,6 +60,18 @@ Search in the llm wiki about FastAPI dependency injection.
 
 ```text
 Look in the llm wiki for React server components.
+```
+
+```text
+Search the llm wiki for LangChain tool calling.
+```
+
+```text
+Look in the llm wiki for Model Context Protocol transports.
+```
+
+```text
+Search the local wiki for Ragas evaluation metrics.
 ```
 
 ```text

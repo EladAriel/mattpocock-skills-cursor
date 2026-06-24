@@ -54,7 +54,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 | Layer | Reference |
 |-------|-----------|
-| Framework docs (FastAPI, SQLAlchemy, Next.js, pytest, etc.) | [`wiki-map.md`](skills/skills/engineering/fullstack/references/wiki-map.md) + `fullstack-llm-wiki-navigator` |
+| Framework docs (LangChain, LangGraph, FastAPI, SQLAlchemy, Next.js, pytest, etc.) | [`wiki-map.md`](skills/skills/engineering/fullstack/references/wiki-map.md) + `fullstack-llm-wiki-navigator` |
 | Models, migrations, services (SQLAlchemy / SQLModel / Beanie) | [`backend.md`](skills/skills/engineering/fullstack/references/backend.md) |
 | Routes, validation, errors, `/api/v1/` | [`api.md`](skills/skills/engineering/fullstack/references/api.md) |
 | Background jobs (Celery, ARQ, BackgroundTasks) | [`jobs.md`](skills/skills/engineering/fullstack/references/jobs.md) |
