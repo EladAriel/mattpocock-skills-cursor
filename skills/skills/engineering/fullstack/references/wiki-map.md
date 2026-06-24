@@ -16,6 +16,7 @@ Start at the nearest entry index, then walk down:
 | When building… | Wiki entry index (from wiki root) |
 |----------------|-----------------------------------|
 | Unsure which area | `frameworks/index.md` |
+| LangChain, LangGraph, Langfuse, MCP, Ragas | `frameworks/ai/index.md` |
 | FastAPI, Pydantic, Redis | `frameworks/backend/index.md` |
 | SQLAlchemy, Alembic, Beanie, PyMongo, MongoDB, Postgres | `frameworks/db/index.md` |
 | React, Next.js, TanStack, Zod, shadcn/ui | `frameworks/ui/index.md` |

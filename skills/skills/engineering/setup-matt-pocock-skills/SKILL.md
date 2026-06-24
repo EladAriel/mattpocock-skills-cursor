@@ -94,7 +94,7 @@ Default: **skip** unless the repo is clearly fullstack (e.g. FastAPI + Next.js).
 
 **Section F — Fullstack LLM Wiki (optional).**
 
-> Explainer: Framework API docs (FastAPI, SQLAlchemy, Next.js, etc.) live in a separate local wiki repo. The `fullstack-llm-wiki-navigator` skill reads it when you build. Clone it once per app repo. Only offer this when the user chose a stack profile in Section E.
+> Explainer: Framework API docs (LangChain, LangGraph, FastAPI, SQLAlchemy, Next.js, etc.) live in a separate local wiki repo. The `fullstack-llm-wiki-navigator` skill reads it when you build. Clone it once per app repo. Only offer this when the user chose a stack profile in Section E.
 
 Default: **clone** if the repo is clearly fullstack and `fullstack-llm-wiki/` does not already exist:
 

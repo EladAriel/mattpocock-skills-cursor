@@ -19,6 +19,16 @@ Merged upstream through `6eeb81b` — notable additions include `ask-matt`, `wri
 - **`fullstack/references/`** — slimmed to Matt workflow/policy + wiki pointers; framework API detail removed.
 - **`setup-matt-pocock-skills`** — optional Section F to clone the wiki into app repos.
 
+### Fullstack LLM Wiki sync (2026-06-24)
+
+- Synced `fullstack-llm-wiki-navigator` with upstream wiki commit `9000a118` — AI category (LangChain, LangGraph, Langfuse, MCP, Ragas), updated navigation workflow and prompt examples.
+- Updated `wiki-map.md`, setup wiki seed, and cross-references.
+
+### Documentation fallback ladder (2026-06-24)
+
+- **`tdd`** — sequential framework doc lookup: local wiki → Context7 MCP → other enabled doc MCPs → model knowledge.
+- **`implement`** — Phase 1 Build points at the `/tdd` fallback chain for framework API questions.
+
 ## 1.0.1
 
 ### Patch Changes

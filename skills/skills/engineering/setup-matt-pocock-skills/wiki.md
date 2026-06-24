@@ -20,10 +20,10 @@ git -C fullstack-llm-wiki pull
 
 ## When agents should use it
 
-For framework or library API questions (FastAPI, SQLAlchemy, Next.js, pytest, etc.), use the `fullstack-llm-wiki-navigator` skill. Navigation: entry index → directory index → most specific page.
+For framework or library API questions (LangChain, LangGraph, FastAPI, SQLAlchemy, Next.js, pytest, etc.), use the `fullstack-llm-wiki-navigator` skill. Navigation: entry index → directory index → most specific page.
 
 Matt layer workflow and within-slice conventions remain in `fullstack/references/` — the wiki does not replace those.
 
 ## Covered frameworks
 
-See `fullstack-llm-wiki/frameworks/index.md` for the current list. Categories: UI, backend, database, test.
+See `fullstack-llm-wiki/frameworks/index.md` for the current list. Categories: AI, UI, backend, database, test.
