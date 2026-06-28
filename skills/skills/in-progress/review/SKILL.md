@@ -43,7 +43,7 @@ Send a single message with two `Agent` tool calls. Use the `general-purpose` sub
 
 - The full diff command and commit list.
 - The list of standards-source files you found in step 3.
-- The brief: "Report — per file/hunk where relevant — every place the diff violates a documented standard. Cite the standard (file + the rule). Distinguish hard violations from judgement calls. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report — per file/hunk where relevant — every place the diff violates a documented standard. Cite the standard (file + the rule). Distinguish hard violations from judgement calls. Skip anything tooling enforces. May also apply the `/ponytail` minimalism lens: over-build, dead abstractions, unrequested scaffolding — cite ponytail rules, not a third axis. Under 400 words."
 
 **Spec sub-agent prompt** — include:
 

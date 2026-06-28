@@ -45,6 +45,8 @@ Read the PRD and the single issue the user passed in.
 
 Do not implement behavior first and add tests later. If code is modified to deliver feature behavior, tests must be added or updated in the same TDD cycle.
 
+The `/ponytail` ladder governs *what* gets built — reuse before rewrite, stdlib and native before new code, no unrequested abstractions.
+
 When invoking `/tdd` from this skill, **skip TDD's branch setup (section 2) and ship (section 6)** — this skill owns those phases.
 
 ### Exceptions (rare; document in the PR if used)
@@ -72,7 +74,7 @@ Address any other blocking findings before continuing. Judgement calls can wait 
 
 ## Phase 3 — Simplify gate (HITL #1)
 
-Run the **`/simplify`** Cursor command scoped to the session diff (unstaged + staged).
+Run the **`/simplify`** Cursor command scoped to the session diff (unstaged + staged). Score the diff against the `/ponytail` ladder: over-engineering, unrequested abstractions, and deferred `ponytail:` shortcuts.
 
 **STOP.** Summarize what `/simplify` changed. Ask the user to verify the diff.
 

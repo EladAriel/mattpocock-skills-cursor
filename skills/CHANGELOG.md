@@ -29,6 +29,13 @@ Merged upstream through `6eeb81b` — notable additions include `ask-matt`, `wri
 - **`tdd`** — sequential framework doc lookup: local wiki → Context7 MCP → other enabled doc MCPs → model knowledge.
 - **`implement`** — Phase 1 Build points at the `/tdd` fallback chain for framework API questions.
 
+### Ponytail discipline (2026-06-28)
+
+- **`ponytail`** — model-invoked minimalism skill (the lazy ladder: YAGNI, reuse, stdlib, native, one line). Fork addition; not in upstream mattpocock/skills.
+- **`tdd`** — Refactor step applies the `/ponytail` ladder.
+- **`implement`** — Build phase and simplify gate score against `/ponytail`.
+- **`review`** — Standards axis may apply the `/ponytail` minimalism lens.
+
 ## 1.0.1
 
 ### Patch Changes
