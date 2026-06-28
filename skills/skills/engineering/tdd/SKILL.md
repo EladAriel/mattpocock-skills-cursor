@@ -5,6 +5,12 @@ description: Test-driven development. Use when the user wants to build features 
 
 # Test-Driven Development
 
+## Default for feature work
+
+`/tdd` is the required build loop whenever `/implement` (or any feature issue) changes observable behavior. Use red → green → refactor for each acceptance criterion — do not implement behavior first and add tests later.
+
+Standalone `/tdd` uses the same cycle end-to-end, including branch setup and ship.
+
 ## Philosophy
 
 **Core principle**: Tests should verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't.

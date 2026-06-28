@@ -37,7 +37,24 @@ If the working tree has unrelated uncommitted changes, stash or leave them behin
 
 Read the PRD and the single issue the user passed in.
 
-Use `/tdd` where possible, at pre-agreed seams. When invoking `/tdd` from this skill, **skip TDD's branch setup (section 2) and ship (section 6)** — this skill owns those phases.
+**All production behavior changes use `/tdd`.** For every acceptance criterion in the issue:
+
+1. Write a failing test (red).
+2. Implement the minimum code to pass (green).
+3. Refactor while tests stay green.
+
+Do not implement behavior first and add tests later. If code is modified to deliver feature behavior, tests must be added or updated in the same TDD cycle.
+
+When invoking `/tdd` from this skill, **skip TDD's branch setup (section 2) and ship (section 6)** — this skill owns those phases.
+
+### Exceptions (rare; document in the PR if used)
+
+Skip new tests only when the change is:
+
+- docs-only, formatting, or dependency bumps with no behavior change
+- pure styling with no logic branch
+
+Everything else — APIs, domain logic, validation, jobs, state, integrations — **must** go through `/tdd`.
 
 **Fullstack repos** (FastAPI + TypeScript, etc.): if `docs/agents/stack-profile.md` exists, read it first. Then read [fullstack/references/layer-order.md](../fullstack/references/layer-order.md) once per issue, and the layer-specific reference for what you're building now (`backend.md`, `api.md`, `jobs.md`, `frontend.md`). For framework API questions during build, follow the **Framework documentation fallback** chain in `/tdd` Planning (wiki → Context7 → other doc MCPs → model knowledge).
 
@@ -49,7 +66,9 @@ Keep a running list of every file created or modified during this session (same 
 
 Run `/review` against the branch diff. Use the default branch as the fixed point.
 
-Address any blocking findings before continuing. Judgement calls can wait for the simplify gate if the user prefers.
+Before accepting the review, verify: **every acceptance criterion has a corresponding test added or updated in this branch.** Missing tests are **blocking** — return to Phase 1 and add them via `/tdd`.
+
+Address any other blocking findings before continuing. Judgement calls can wait for the simplify gate if the user prefers.
 
 ## Phase 3 — Simplify gate (HITL #1)
 
