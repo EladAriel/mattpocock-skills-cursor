@@ -27,6 +27,7 @@ Re-apply these edits if upstream overwrites them:
 - [skills/engineering/setup-matt-pocock-skills/SKILL.md](./skills/engineering/setup-matt-pocock-skills/SKILL.md) — writes `AGENTS.md`, reads `.cursor/rules/`
 - [skills/engineering/fullstack/](./skills/engineering/fullstack/) — Cursor-fork reference bucket for fullstack layer conventions (not user-invoked)
 - [skills/engineering/fullstack-llm-wiki-navigator/](./skills/engineering/fullstack-llm-wiki-navigator/) — model-invoked skill for local framework docs in the Fullstack LLM Wiki
+- [skills/engineering/ponytail/](./skills/engineering/ponytail/) — model-invoked minimalism discipline (the lazy ladder); wired into `/tdd`, `/implement`, and `/review`
 - [skills/misc/README.md](./skills/misc/README.md) — `git-guardrails-cursor` and `sync-matt-pocock-skills-cursor` entries
 - [CHANGELOG.md](./CHANGELOG.md) — Unreleased Cursor fork breaking-changes section
 

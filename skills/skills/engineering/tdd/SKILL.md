@@ -130,6 +130,7 @@ Rules:
 
 After all tests pass, look for [refactor candidates](refactoring.md):
 
+- [ ] Apply the `/ponytail` ladder — reuse / stdlib / native before new code; delete over add
 - [ ] Extract duplication
 - [ ] Deepen modules (move complexity behind simple interfaces)
 - [ ] Apply SOLID principles where natural
