@@ -1,0 +1,21 @@
+{
+    "mcpServers": {
+      "github": {
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "Authorization": "Bearer <PAT>"
+        }
+      },
+      "chrome-devtools": {
+        "command": "npx",
+        "args": ["-y", "chrome-devtools-mcp@latest"]
+      },
+      "docs-langchain": {
+        "url": "https://docs.langchain.com/mcp"
+      },
+      "context7": {
+        "command": "npx",
+        "args": ["-y", "@upstash/context7-mcp"]
+      }        
+    }
+  }
