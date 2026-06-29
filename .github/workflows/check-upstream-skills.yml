@@ -1,0 +1,25 @@
+name: Check upstream skills updates
+
+on:
+  schedule:
+    # Sunday 08:00 UTC (~10:00 Israel / 09:00 CET)
+    - cron: "0 8 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-upstream:
+    name: Compare mattpocock/skills to fork
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check upstream and open issue if behind
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: bash .github/scripts/check-upstream-skills.sh
