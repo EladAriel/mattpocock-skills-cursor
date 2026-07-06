@@ -5,54 +5,47 @@ description: Test-driven development. Use when the user wants to build features 
 
 # Test-Driven Development
 
+TDD is the red → green loop. This skill is the reference that makes that loop produce tests worth keeping: what a good test is, where tests go, the anti-patterns, and the rules of the loop. Every section applies on every cycle — consult them before and during the loop, not after.
+
 ## Default for feature work
 
-`/tdd` is the required build loop whenever `/implement` (or any feature issue) changes observable behavior. Use red → green → refactor for each acceptance criterion — do not implement behavior first and add tests later.
+`/tdd` is the required build loop whenever `/implement` (or any feature issue) changes observable behavior. Use red → green for each acceptance criterion — do not implement behavior first and add tests later.
 
 Standalone `/tdd` uses the same cycle end-to-end, including branch setup and ship.
 
-## Philosophy
+When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
-**Core principle**: Tests should verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't.
+## What a good test is
 
-**Good tests** are integration-style: they exercise real code paths through public APIs. They describe _what_ the system does, not _how_ it does it. A good test reads like a specification - "user can checkout with valid cart" tells you exactly what capability exists. These tests survive refactors because they don't care about internal structure.
-
-**Bad tests** are coupled to implementation. They mock internal collaborators, test private methods, or verify through external means (like querying a database directly instead of using the interface). The warning sign: your test breaks when you refactor, but behavior hasn't changed. If you rename an internal function and tests fail, those tests were testing implementation, not behavior.
+Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't. A good test reads like a specification — "user can checkout with valid cart" tells you exactly what capability exists — and survives refactors because it doesn't care about internal structure.
 
 See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking guidelines.
 
-## Anti-Pattern: Horizontal Slices
+## Seams — where tests go
 
-**DO NOT write all tests first, then all implementation.** This is "horizontal slicing" - treating RED as "write all tests" and GREEN as "write all code."
+A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
 
-This produces **crap tests**:
+**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything — agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
 
-- Tests written in bulk test _imagined_ behavior, not _actual_ behavior
-- You end up testing the _shape_ of things (data structures, function signatures) rather than user-facing behavior
-- Tests become insensitive to real changes - they pass when behavior breaks, fail when behavior is fine
-- You outrun your headlights, committing to test structure before understanding the implementation
+Ask: "What's the public interface, and which seams should we test?"
 
-**Correct approach**: Vertical slices via tracer bullets. One test → one implementation → repeat. Each test responds to what you learned from the previous cycle. Because you just wrote the code, you know exactly what behavior matters and how to verify it.
+## Anti-patterns
 
-```
-WRONG (horizontal):
-  RED:   test1, test2, test3, test4, test5
-  GREEN: impl1, impl2, impl3, impl4, impl5
+- **Implementation-coupled** — mocks internal collaborators, tests private methods, or verifies through a side channel (querying the database instead of using the interface). The tell: the test breaks when you refactor but behavior hasn't changed.
+- **Tautological** — the assertion recomputes the expected value the way the code does (`expect(add(a, b)).toBe(a + b)`, a snapshot derived by hand the same way, a constant asserted equal to itself), so it passes by construction and can never disagree with the code. Expected values must come from an independent source of truth — a known-good literal, a worked example, the spec.
+- **Horizontal slicing** — writing all tests first, then all implementation. Bulk tests verify _imagined_ behavior: you test the _shape_ of things rather than user-facing behavior, the tests go insensitive to real changes, and you commit to test structure before understanding the implementation. Work in **vertical slices** instead — one test → one implementation → repeat, each test a **tracer bullet** that responds to what the last cycle taught you.
 
-RIGHT (vertical):
-  RED→GREEN: test1→impl1
-  RED→GREEN: test2→impl2
-  RED→GREEN: test3→impl3
-  ...
-```
+## Rules of the loop
+
+- **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
+- **One slice at a time.** One seam, one test, one minimal implementation per cycle.
+- **Structural refactoring belongs in review.** Deep structural refactoring belongs to the `/code-review` stage, not the red → green implementation cycle. This fork optionally applies the `/ponytail` ladder after green (see section 5).
 
 ## Workflow
 
 **Session file tracking**: From the first edit onward, keep a running list of every file created or modified during this TDD session. At ship time, stage **only** those files — never `git add .` or unrelated dirty files.
 
 ### 1. Planning
-
-When exploring the codebase, read `CONTEXT.md` (if it exists) so that test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
 **Fullstack repos:** if `docs/agents/stack-profile.md` exists, read it. Then read [fullstack/references/testing.md](../fullstack/references/testing.md) for within-slice test order (service before route before UI). Matt's anti-pattern — horizontal test batches — still applies; this only orders layers inside one vertical slice. For framework or library API questions, follow **Framework documentation fallback** below.
 
@@ -126,9 +119,9 @@ Rules:
 - Don't anticipate future tests
 - Keep tests focused on observable behavior
 
-### 5. Refactor
+### 5. Refactor (ponytail pass)
 
-After all tests pass, look for [refactor candidates](refactoring.md):
+After all tests pass, apply the `/ponytail` ladder before moving on:
 
 - [ ] Apply the `/ponytail` ladder — reuse / stdlib / native before new code; delete over add
 - [ ] Extract duplication
@@ -141,7 +134,7 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 
 ### 6. Ship
 
-> **When invoked via `/implement`, skip this section.** `/implement` runs `/simplify`, HITL verification, and `/commit-push-pr` after `/review`.
+> **When invoked via `/implement`, skip this section.** `/implement` runs `/simplify`, HITL verification, and `/commit-push-pr` after `/code-review`.
 
 Mandatory when the TDD cycle is complete (all tests green, refactor done). Skip only if the user explicitly says not to commit or open a PR.
 
