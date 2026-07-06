@@ -66,7 +66,7 @@ Keep a running list of every file created or modified during this session (same 
 
 ## Phase 2 — Review
 
-Run `/review` against the branch diff. Use the default branch as the fixed point.
+Run `/code-review` against the branch diff. Use the default branch as the fixed point.
 
 Before accepting the review, verify: **every acceptance criterion has a corresponding test added or updated in this branch.** Missing tests are **blocking** — return to Phase 1 and add them via `/tdd`.
 

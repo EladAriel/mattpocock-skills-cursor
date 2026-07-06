@@ -63,7 +63,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 **TDD rule:** tracer-bullet RED→GREEN per behavior — never write all backend tests then all frontend tests.
 
-**Ship per issue:** `/review` → `/simplify` → verify → `/commit-push-pr` → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
+**Ship per issue:** `/code-review` → `/simplify` → verify → `/commit-push-pr` → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
 
 ### 5. Refactor
 
@@ -74,6 +74,6 @@ Same as General Flow — **`improve-codebase-architecture`** when structural wor
 1. `/grill-with-docs` → `/to-prd` → `/to-issues` (one conversation)
 2. Issue: *"User can list stress tests"* — **new session**
 3. `/implement` + PRD + issue → stack profile + layer-order → TDD: migration → service test → route test → Zod type → list component test
-4. `/review` → `/simplify` → verify → PR → merge → mark issue complete → checkout `main`
+4. `/code-review` → `/simplify` → verify → PR → merge → mark issue complete → checkout `main`
 
 Full reference index: [`skills/skills/engineering/fullstack/README.md`](skills/skills/engineering/fullstack/README.md). Unsure which skill to use? **`ask-matt`**.
