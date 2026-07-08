@@ -6,11 +6,11 @@ Framework API patterns live in the [Fullstack LLM Wiki](https://github.com/EladA
 
 ## Conflict rule
 
-**Matt's flow wins** on orchestration and slice shape (`grill-with-docs` → `to-prd` → `to-issues` → `implement` / `tdd`). These references only govern **layer order inside one vertical slice**.
+**Matt's flow wins** on orchestration and slice shape (`grill-with-docs` → `to-spec` → `to-tickets` → `implement` / `tdd`). These references only govern **layer order inside one vertical slice**.
 
 | Scope | Owner |
 |-------|-------|
-| How issues are split | `to-issues` — vertical tracer bullets |
+| How tickets are split | `to-tickets` — vertical tracer bullets |
 | Order inside one issue | References below |
 | Framework API patterns | Fullstack LLM Wiki via navigator skill |
 | Test philosophy | `tdd` — RED→GREEN tracer bullets, never horizontal test batches |

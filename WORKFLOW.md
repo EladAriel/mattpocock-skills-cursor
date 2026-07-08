@@ -3,9 +3,9 @@
 ## General Flow
 
 1. If you have codebase use `/grill-with-docs` and if you don't have use `/grill-me` to create shared language with LLM.
-2. When done we invoke the `/to-prd` skill to product PRD (make sure you stay within the same conversation of step 1.)
-3. When done we invoke the `/to-issues` skill to break a plan into independently-grabbable issues using vertical slices.
-4. Copy the `Suggested pickup order` from step 3. For each issue, invoke `/implement` (which uses `/tdd` for test-driven development).
+2. When done we invoke the `/to-spec` skill to produce a spec (make sure you stay within the same conversation of step 1.)
+3. When done we invoke the `/to-tickets` skill to break a plan into tracer-bullet tickets with blocking edges.
+4. Work tickets in pickup order. For each ticket, invoke `/implement` (which uses `/tdd` for test-driven development).
 5. If the code need refactoring then use `improve-codebase-architecture` skill.
 
 ## Fullstack AI Application Flow
@@ -23,9 +23,9 @@ Run **`setup-matt-pocock-skills`** before your first feature. Opt in to:
 
 ### 1–3. Plan (same conversation)
 
-Same as General Flow steps 1–3. Do not compact or clear context until after **`to-issues`**.
+Same as General Flow steps 1–3. Do not compact or clear context until after **`to-tickets`**.
 
-At **`to-issues`**, slices stay **vertical** — each issue is demoable end-to-end. Example:
+At **`to-tickets`**, slices stay **vertical** — each ticket is demoable end-to-end. Example:
 
 - **Slice 1:** thinnest read path (model → service → GET route → list UI → tests)
 - **Slice 2:** write path (create/update → POST/PATCH → form UI → tests)
@@ -36,7 +36,7 @@ See [`skills/skills/engineering/fullstack/references/layer-order.md`](skills/ski
 
 ### 4. Build (fresh session per issue)
 
-Copy the `Suggested pickup order` from step 3. For **each issue**, start a **new session** and invoke **`implement`** with the PRD + that single issue. `implement` uses **`tdd`** inside.
+Copy the pickup order from step 3. For **each ticket**, start a **new session** and invoke **`implement`** with the spec + that single ticket. `implement` uses **`tdd`** inside.
 
 **Read order at the start of each issue:**
 
@@ -71,9 +71,9 @@ Same as General Flow — **`improve-codebase-architecture`** when structural wor
 
 ### Example session
 
-1. `/grill-with-docs` → `/to-prd` → `/to-issues` (one conversation)
-2. Issue: *"User can list stress tests"* — **new session**
-3. `/implement` + PRD + issue → stack profile + layer-order → TDD: migration → service test → route test → Zod type → list component test
+1. `/grill-with-docs` → `/to-spec` → `/to-tickets` (one conversation)
+2. Ticket: *"User can list stress tests"* — **new session**
+3. `/implement` + spec + ticket → stack profile + layer-order → TDD: migration → service test → route test → Zod type → list component test
 4. `/code-review` → `/simplify` → verify → PR → merge → mark issue complete → checkout `main`
 
 Full reference index: [`skills/skills/engineering/fullstack/README.md`](skills/skills/engineering/fullstack/README.md). Unsure which skill to use? **`ask-matt`**.

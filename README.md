@@ -2,7 +2,7 @@
 
 A Cursor-only fork of [mattpocock/skills](https://github.com/mattpocock/skills).
 
-**Created:** 2026-06-18 09:34 +0300 · **Updated:** 2026-06-18 13:35 +0300 · **Upstream:** [mattpocock/skills](https://github.com/mattpocock/skills)
+**Created:** 2026-06-18 09:34 +0300 · **Updated:** 2026-07-08 15:22 +0300 · **Upstream:** [mattpocock/skills](https://github.com/mattpocock/skills)
 
 The skill library lives in [`skills/`](skills/). See [`skills/README.md`](skills/README.md) for the quickstart:
 
@@ -18,9 +18,9 @@ Then reload Cursor and run **setup-matt-pocock-skills** in your project.
 End-to-end flow for building a feature with these skills (see also [`WORKFLOW.md`](WORKFLOW.md)):
 
 1. **Align** — If you have a codebase, use **grill-with-docs**; otherwise use **grill-me** to build shared language with the agent.
-2. **PRD** — In the same conversation, invoke **to-prd** to turn the discussion into a PRD.
-3. **Issues** — Invoke **to-issues** to break the plan into independently grabbable vertical slices.
-4. **Build** — Copy the `Suggested pickup order` from step 3, then invoke **implement** for each slice (it uses **tdd** inside).
+2. **Spec** — In the same conversation, invoke **to-spec** to turn the discussion into a spec.
+3. **Tickets** — Invoke **to-tickets** to break the plan into tracer-bullet tickets with blocking edges.
+4. **Build** — Work tickets in pickup order, invoking **implement** for each (it uses **tdd** inside).
 5. **Refactor** — If the code needs structural work, invoke **improve-codebase-architecture**.
 
 ## Keeping up to date
