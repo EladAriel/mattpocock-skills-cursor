@@ -2,7 +2,7 @@
 
 ## Two levels — don't confuse them
 
-**Across issues** (Matt `to-issues`): vertical slices. Each issue is a thin end-to-end path — demoable on its own. Never split "all models" then "all routes" then "all UI" into separate issues.
+**Across tickets** (Matt `to-tickets`): vertical slices. Each ticket is a thin end-to-end path — demoable on its own. Never split "all models" then "all routes" then "all UI" into separate tickets.
 
 **Inside one issue** (this doc): build layers in dependency order:
 

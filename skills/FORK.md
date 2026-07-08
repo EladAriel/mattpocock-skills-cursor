@@ -3,5 +3,5 @@
 - **Upstream:** https://github.com/mattpocock/skills
 - **Fork branch:** main
 - **Subtree prefix:** `skills/` (upstream repo root maps to this folder)
-- **Last synced upstream commit:** 66f92b6 (mattpocock/skills@main)
+- **Last synced upstream commit:** d574778 (mattpocock/skills@main)
 - **Cursor delta:** see [FORK-DELTA.md](./FORK-DELTA.md)
