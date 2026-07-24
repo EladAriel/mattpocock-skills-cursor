@@ -52,6 +52,10 @@ cd ~/mattpocock-skills-cursor/skills
 
 **Keeping up to date:** pull this fork and reload Cursor. For upstream sync (fork maintainers), use `@sync-matt-pocock-skills-cursor` — do not run a bare `git pull` on upstream mattpocock/skills. See [FORK.md](./FORK.md).
 
+## Cursor fork note
+
+This repository is a **Cursor-adapted fork** of [mattpocock/skills](https://github.com/mattpocock/skills). Install with `link-skills-cursor.sh` (above). Upstream also ships a native Claude Code plugin and Codex metadata (`agents/openai.yaml`); those Claude-only install paths are intentionally omitted here — see [FORK-DELTA.md](./FORK-DELTA.md).
+
 ## Why These Skills Exist
 
 I built these skills as a way to fix common failure modes I see with Claude Code, Codex, and other coding agents.
@@ -181,6 +185,7 @@ Skills I use daily for code work.
 - **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)** — Actively build and sharpen a project's domain model — challenge terms against the glossary, stress-test with edge-case scenarios, and update `CONTEXT.md` and ADRs inline.
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)** — Shared discipline and vocabulary for designing deep modules: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface.
 - **[code-review](./skills/engineering/code-review/SKILL.md)** — Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/PRD?), run as parallel sub-agents so neither pollutes the other.
+- **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** — Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation — never `--abort`.
 - **[ponytail](./skills/engineering/ponytail/SKILL.md)** — Forces the laziest solution that works: climb a ladder (YAGNI, reuse, stdlib, native, one line) before writing new code; never cut validation, security, or accessibility.
 
 ### Productivity
@@ -196,7 +201,7 @@ General workflow tools, not code-specific.
 
 **Model-invoked**
 
-- **[grilling](./skills/productivity/grilling/SKILL.md)** — Interview the user relentlessly about a plan or design until every branch of the decision tree is resolved. The reusable loop behind `grill-me` and `grill-with-docs`.
+- **[grilling](./skills/productivity/grilling/SKILL.md)** — Interview the user relentlessly about a plan, decision, or idea until every branch of the decision tree is resolved. The reusable loop behind `grill-me` and `grill-with-docs`.
 
 ### Misc
 

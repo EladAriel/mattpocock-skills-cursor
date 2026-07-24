@@ -44,6 +44,10 @@ Merged upstream through `66f92b6` — notable changes: `review` → `code-review
 
 Merged upstream through `d574778` (v1.1.0) — notable changes: `to-prd` → `to-spec`, `to-issues` → `to-tickets`, `implement` and `wayfinder` graduated to engineering, `ask-matt` full skill map, grilling confirmation gate and facts-vs-decisions split, `writing-great-skills` Negation/Negative Space failure modes, TDD reference-only reshape with seam concept, triage PR surface, wide-refactor expand–contract slicing.
 
+### Upstream sync (2026-07-24)
+
+Merged upstream through `ed37663` — notable changes: Codex `agents/openai.yaml` metadata on every skill, Claude Code plugin shipping (omitted in this fork), friendlier setup + local tickets, wayfinder decision-ticket / research-subagent refinements, grilling general-use reword, `batch-grill-me` / `to-questionnaire` / `setup-ts-deep-modules` in-progress, YAGNI-scoped improve-codebase-architecture, promoted-bucket wiring fixes.
+
 ## 1.1.0
 
 ### Minor Changes
@@ -104,7 +108,7 @@ Merged upstream through `d574778` (v1.1.0) — notable changes: `to-prd` → `to
 
 - [#472](https://github.com/mattpocock/skills/pull/472) [`d869d45`](https://github.com/mattpocock/skills/commit/d869d45afc32beab1c2d1350f8de5e81589512cd) Thanks [@mattpocock](https://github.com/mattpocock)! - Fix **`wayfinder`** hardcoding the issue-tracker doc path, which broke the indirection the rest of the suite relies on.
 
-  `to-issues`, `to-spec`, and `triage` never name a path — they resolve the tracker through the `### Issue tracker` block that `setup-matt-pocock-skills` writes into `AGENTS.md`, which points at the tracker doc wherever it lives. Wayfinder instead pinned the literal `docs/agents/issue-tracker.md`, so in a repo that keeps its agent docs elsewhere it silently fell back to the local-markdown tracker — even one whose `AGENTS.md` clearly declares GitHub issues. It now resolves the doc via that same pointer and reads its "Wayfinding operations" section by name, keeping the indirection consistent across the suite.
+  `to-tickets`, `to-spec`, and `triage` never name a path — they resolve the tracker through the `### Issue tracker` block that `setup-matt-pocock-skills` writes into `AGENTS.md`, which points at the tracker doc wherever it lives. Wayfinder instead pinned the literal `docs/agents/issue-tracker.md`, so in a repo that keeps its agent docs elsewhere it silently fell back to the local-markdown tracker — even one whose `AGENTS.md` clearly declares GitHub issues. It now resolves the doc via that same pointer and reads its "Wayfinding operations" section by name, keeping the indirection consistent across the suite.
 
 ## 1.0.1
 
