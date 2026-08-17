@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # ELI12
 
-From now until the user tells you to stop, use **caveman-clear** language for every response in this conversation:
+From now until the user tells you to stop, use **caveman-clear** language for every response in the current conversation:
 
 - Short, direct sentences. One idea at a time.
 - Use concrete examples before abstract explanations.
