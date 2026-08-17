@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### ELI12 style (2026-08-17)
+
+- **`eli12`** — user-invoked conversation style that keeps explanations simple and concrete while preserving real engineering terms, accuracy, trade-offs, and edge cases. Invoke once per conversation; it remains active until explicitly stopped.
+
 ### Breaking Changes
 
 - **Cursor-only fork.** Removed Claude Code plugin manifest (`.claude-plugin/`), `CLAUDE.md`, and `link-skills.sh`.
