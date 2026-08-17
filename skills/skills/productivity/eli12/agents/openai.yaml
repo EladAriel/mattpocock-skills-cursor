@@ -1,0 +1,5 @@
+interface:
+  display_name: "ELI12"
+  short_description: "Simple language, real engineering terms"
+policy:
+  allow_implicit_invocation: false
