@@ -63,7 +63,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 **TDD rule:** tracer-bullet RED→GREEN per behavior — never write all backend tests then all frontend tests.
 
-**Ship per issue:** `/code-review` → `/simplify` → verify → `/commit-push-pr` → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
+**Ship per issue:** `/code-review` → `/simplify` → verify → `/commit-push-pr` (include simple Mermaid diagrams: system flow, user flow, architecture, sequence) → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
 
 ### 5. Refactor
 
