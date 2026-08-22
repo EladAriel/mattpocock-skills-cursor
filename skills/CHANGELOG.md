@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### ELI12 always-on (2026-08-22)
+
+- **`eli12`** — default explanation style via `.cursor/rules/eli12.mdc` (`alwaysApply: true`). Plain words and short sentences, like talking to a 12-year-old, with real engineering terms defined on first use. No metaphors, analogies, or cute nicknames. Installed by default via `setup-matt-pocock-skills` seed rules. Opt out per conversation with `stop eli12`.
+
 ### ELI12 style (2026-08-17)
 
 - **`eli12`** — user-invoked conversation style that keeps explanations simple and concrete while preserving real engineering terms, accuracy, trade-offs, and edge cases. Invoke once per conversation; it remains active until explicitly stopped.

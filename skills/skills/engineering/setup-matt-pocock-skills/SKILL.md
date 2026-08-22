@@ -66,12 +66,13 @@ Offer **multi-context** — a root `CONTEXT-MAP.md` pointing to per-context `CON
 
 **Section D — Coding standards (Cursor rules).**
 
-> Explainer: Cursor rules are persistent coding standards the agent sees when editing matching files. Skills like `code-review` treat them as Standards sources alongside `CONTRIBUTING.md`. Seed templates ship with this skill — code quality thresholds, docstring/JSDoc conventions, and license compliance when adding dependencies. OrchestKit's visual-style rule is intentionally omitted (toolkit-specific emoji/ASCII vocabulary).
+> Explainer: Cursor rules are persistent standards the agent sees when editing matching files (or on every turn when `alwaysApply: true`). Skills like `code-review` treat them as Standards sources alongside `CONTRIBUTING.md`. Seed templates ship with this skill — ELI12 as the default explanation style, code quality thresholds, docstring/JSDoc conventions, and license compliance when adding dependencies. OrchestKit's visual-style rule is intentionally omitted (toolkit-specific emoji/ASCII vocabulary).
 
 Default: **install seed rules** if `.cursor/rules/` is empty or missing. If rules already exist, list them and ask whether to add the seeds (skip filenames that already exist), replace nothing without explicit approval, or skip entirely.
 
 Templates (in this skill's [rules/](./rules/) folder):
 
+- `eli12.mdc` — default explanation style: simple words, real tech terms, no metaphors (`alwaysApply: true`)
 - `code-quality.mdc` — function length, nesting depth, cyclomatic complexity
 - `docstring-standards.mdc` — Python docstrings and TypeScript/JSDoc for exported functions
 - `license-compliance.mdc` — dependency license checks (`alwaysApply: true`)

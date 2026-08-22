@@ -16,6 +16,7 @@ Upstream may re-add these Claude Code artifacts — remove them:
 - [CURSOR.md](./CURSOR.md)
 - [scripts/link-skills-cursor.sh](./scripts/link-skills-cursor.sh)
 - [skills/misc/git-guardrails-cursor/](./skills/misc/git-guardrails-cursor/)
+- `.cursor/rules/eli12.mdc` — always-on explanation style (also seeded by `setup-matt-pocock-skills`)
 
 ## Must stay Cursor-adapted
 
@@ -24,7 +25,7 @@ Re-apply these edits if upstream overwrites them:
 - [README.md](./README.md) — clone + `link-skills-cursor.sh` quickstart, Cursor invocation wording, sync skill for updates (not bare `git pull`)
 - [CONTEXT.md](./CONTEXT.md) — "loaded by Cursor"
 - [docs/invocation.md](./.agents/invocation.md) — Cursor @-mention behavior
-- [skills/engineering/setup-matt-pocock-skills/SKILL.md](./skills/engineering/setup-matt-pocock-skills/SKILL.md) — writes `AGENTS.md`, reads `.cursor/rules/`
+- [skills/engineering/setup-matt-pocock-skills/SKILL.md](./skills/engineering/setup-matt-pocock-skills/SKILL.md) — writes `AGENTS.md`, reads `.cursor/rules/`, seeds `eli12.mdc` as default explanation style
 - [skills/engineering/fullstack/](./skills/engineering/fullstack/) — Cursor-fork reference bucket for fullstack layer conventions (not user-invoked)
 - [skills/engineering/fullstack-llm-wiki-navigator/](./skills/engineering/fullstack-llm-wiki-navigator/) — model-invoked skill for local framework docs in the Fullstack LLM Wiki
 - [skills/engineering/ponytail/](./skills/engineering/ponytail/) — model-invoked minimalism discipline (the lazy ladder); wired into `/tdd`, `/implement`, and `/code-review`

@@ -1,12 +1,9 @@
 ---
-name: eli12
-description: Keep explanations simple enough for a 12-year-old without losing real engineering terms.
-disable-model-invocation: true
+description: Explain in simple words for a 12-year-old; keep real tech terms; no metaphors
+alwaysApply: true
 ---
 
 # ELI12
-
-This style is **always active** when `.cursor/rules/eli12.mdc` is installed (`alwaysApply: true`). Use it for every response unless the user opts out for this conversation.
 
 Explain like you are talking to a 12-year-old — plain words, short sentences, one idea at a time — while keeping real technical and engineering terms:
 
@@ -17,4 +14,4 @@ Explain like you are talking to a 12-year-old — plain words, short sentences, 
 - **Do not rename technical things with cute labels** (e.g. calling a database a "filing cabinet").
 - Concrete examples are fine when they describe real code, files, or behavior — not fictional comparisons.
 
-This mode survives topic changes and other skills. The user can opt out for the current conversation by saying `stop eli12`, asking for normal tone, or clearly asking to leave this mode.
+The user can opt out for the current conversation by saying `stop eli12`, asking for normal tone, or clearly asking to leave this mode.
