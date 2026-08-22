@@ -63,7 +63,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 **TDD rule:** tracer-bullet RED→GREEN per behavior — never write all backend tests then all frontend tests.
 
-**Ship per issue:** `/code-review` → `/simplify` → verify → `/commit-push-pr` (include simple Mermaid diagrams: system flow, user flow, architecture, sequence) → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
+**Ship per issue:** `/code-review` → `/simplify` → run manual QA checklist (or Playwright MCP against hints in `.scratch/<feature>/qa/`) → `/commit-push-pr` (include simple Mermaid diagrams: system flow, user flow, architecture, sequence) → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
 
 ### 5. Refactor
 
@@ -74,6 +74,6 @@ Same as General Flow — **`improve-codebase-architecture`** when structural wor
 1. `/grill-with-docs` → `/to-spec` → `/to-tickets` (one conversation)
 2. Ticket: *"User can list stress tests"* — **new session**
 3. `/implement` + spec + ticket → stack profile + layer-order → TDD: migration → service test → route test → Zod type → list component test
-4. `/code-review` → `/simplify` → verify → PR → merge → mark issue complete → checkout `main`
+4. `/code-review` → `/simplify` → run manual QA checklist → PR → merge → mark issue complete → checkout `main`
 
 Full reference index: [`skills/skills/engineering/fullstack/README.md`](skills/skills/engineering/fullstack/README.md). Unsure which skill to use? **`ask-matt`**.

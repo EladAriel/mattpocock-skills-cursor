@@ -273,6 +273,7 @@ Use matching MCP tools instead of `gh`:
 | **Sequence** | Runtime happy-path message order | 2–4 participants; one primary path |
 | **Acceptance criteria** | Checkboxes reviewers can verify before merge | — |
 | **What we achieve** | Success metrics and delivered value after merge | — |
+| **Test plan** | Manual verification steps — reuse cases from `/implement` manual QA file when present | Link to QA file; one checkbox per test case |
 
 ### Mermaid hygiene
 
@@ -284,6 +285,8 @@ Use matching MCP tools instead of `gh`:
 ### Reuse from implement
 
 If the PR implements work from a Plan-mode HLD, adapt (don't duplicate verbatim) the architecture and sequence diagrams from that plan; add system and user flow diagrams specific to the shipped slice.
+
+If a manual QA file exists for this branch or ticket (`.scratch/<feature>/qa/<NN>-<slug>-manual-qa.md` or `.scratch/qa/<ticket-id>-manual-qa.md`), copy its test cases into the **Test plan** section — one checkbox per case with steps and expected result. Link to the QA file path; do not duplicate acceptance criteria (those belong in **Acceptance criteria**).
 
 **Good acceptance criterion:** "API returns 422 when `thickness_mm` is missing from tool payload."
 
