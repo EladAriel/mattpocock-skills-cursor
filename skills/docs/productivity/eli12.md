@@ -1,31 +1,33 @@
 ## What it does
 
-`eli12` turns on a persistent explanation style for the current conversation: short sentences, concrete examples, and simple grammar, while keeping real engineering terminology and technical accuracy.
+`eli12` is the default explanation style for every talk and session: plain words and short sentences, like talking to a 12-year-old, while keeping real engineering terminology and technical accuracy.
 
-The defining constraint is that simple language must not become simplified engineering. The agent still names the real concepts, preserves causal chains and trade-offs, and defines unfamiliar terms when they first appear.
+The defining constraint is that simple language must not become simplified engineering. The agent still names the real concepts, preserves causal chains and trade-offs, and defines unfamiliar terms when they first appear. It does not use metaphors, analogies, or cute nicknames for technical things.
 
 ## When to reach for it
 
-You invoke this by typing `/eli12` — the agent won't reach for it on its own. Invoke it once when you want the rest of the conversation explained at roughly a 12-year-old reading level, with a blunt, caveman-clear rhythm.
+ELI12 is **always on** when `.cursor/rules/eli12.mdc` is installed (`alwaysApply: true`). The `setup-matt-pocock-skills` seed installs it by default. You do not need to type `/eli12` each session.
 
-The mode survives topic changes and other skills. Say `stop eli12` or ask for the normal tone when you want to leave it.
+Say `stop eli12` or ask for the normal tone when you want to opt out for the rest of the current conversation. Type `/eli12` to re-read the style definition or reinforce it if the rule is not installed.
 
-## Caveman-clear, not technically shallow
+## Simple words, not technically shallow
 
-**Caveman-clear** means one concrete idea at a time:
+**Simple words** means one idea at a time:
 
 - Name the real component, protocol, failure mode, or trade-off.
 - Define an unfamiliar term in plain words on first use.
 - Explain what happens, why it happens, and what it costs.
 - Keep edge cases, uncertainty, and safety warnings visible.
+- Do not use metaphors, analogies, or story comparisons.
+- Do not replace engineering terms with childish nicknames.
 
-The result should sound simple without replacing engineering terms with childish nicknames or removing the details that make the answer correct.
+The result should sound simple without removing the details that make the answer correct.
 
 ## Common questions
 
 **Does it carry into a new conversation?**
 
-No. The active style lives only in the current conversation. Invoke `/eli12` again in a new one.
+Yes, when the `eli12.mdc` rule is installed. Every new session loads it automatically. Without the rule, invoke `/eli12` once per conversation.
 
 **Does it remove jargon?**
 
@@ -36,9 +38,9 @@ It removes unexplained jargon, not the vocabulary itself. Real engineering terms
 - You can follow the explanation without already knowing the topic.
 - Real engineering terms appear with short definitions.
 - Each answer still explains causes, trade-offs, and important edge cases.
-- The style remains active on later turns without another invocation.
-- A clear stop request returns the agent to its normal tone.
+- Explanations use plain words without metaphors or analogies.
+- A clear stop request returns the agent to its normal tone for that conversation.
 
 ## Where it fits
 
-`eli12` is a reach-for-it-anytime standalone style layer. It changes how every later response is explained, including responses produced while another skill is active. Use [wait-what](https://aihero.dev/skills-wait-what) instead when only the last message needs a clearer re-pitch, and use [ask-matt](https://aihero.dev/skills-ask-matt) when you need the map of the full skill set.
+`eli12` is the default style layer for every response. It applies across topics and other skills. Use [wait-what](https://aihero.dev/skills-wait-what) instead when only the last message needs a clearer re-pitch, and use [ask-matt](https://aihero.dev/skills-ask-matt) when you need the map of the full skill set.

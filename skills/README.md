@@ -195,7 +195,7 @@ General workflow tools, not code-specific.
 
 **User-invoked**
 
-- **[eli12](./skills/productivity/eli12/SKILL.md)** — Keep every explanation in the current conversation simple enough for a 12-year-old without losing real engineering terms.
+- **[eli12](./skills/productivity/eli12/SKILL.md)** — Default explanation style: simple words for a 12-year-old, real engineering terms, no metaphors. Always on when `.cursor/rules/eli12.mdc` is installed.
 - **[grill-me](./skills/productivity/grill-me/SKILL.md)** — Get relentlessly interviewed about a plan or design until every branch of the design tree is resolved.
 - **[handoff](./skills/productivity/handoff/SKILL.md)** — Compact the current conversation into a handoff document so another agent can continue the work.
 - **[teach](./skills/productivity/teach/SKILL.md)** — Teach the user a new skill or concept over multiple sessions, using the current directory as a stateful teaching workspace.
