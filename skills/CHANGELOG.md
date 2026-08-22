@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Manual QA wrap-up (2026-08-22)
+
+- **`implement`** — Agent mode now writes a manual QA markdown file at the end of each run (after the full test suite, before `/code-review`). One file per ticket under `.scratch/<feature>/qa/` with test cases mapped to acceptance criteria, steps, expected results, and optional Playwright hints. New reference: `skills/engineering/implement/MANUAL-QA.md`.
+
 ### ELI12 style (2026-08-17)
 
 - **`eli12`** — user-invoked conversation style that keeps explanations simple and concrete while preserving real engineering terms, accuracy, trade-offs, and edge cases. Invoke once per conversation; it remains active until explicitly stopped.
