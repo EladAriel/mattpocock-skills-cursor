@@ -5,7 +5,7 @@ description: Commit changes, push branch, and open a GitHub pull request with bu
 
 # Commit, Push, and Create PR
 
-End-to-end workflow: stage and commit locally, push the branch, open a PR with business logic, acceptance criteria, and outcomes.
+End-to-end workflow: stage and commit locally, push the branch, open a PR with business logic, Mermaid diagrams, acceptance criteria, and outcomes.
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ If one exists, return its URL instead of creating a duplicate.
 
 Fill every section from the actual diff and conversation context. Be specific — no generic placeholders.
 
-```markdown
+````markdown
 ## Summary
 
 [1–3 bullets: what changed at a high level]
@@ -131,6 +131,54 @@ Fill every section from the actual diff and conversation context. Be specific �
 ## Business logic
 
 [Explain the problem, domain rules, and how the change behaves for users/systems. Why this approach? What invariants or calculations apply?]
+
+## Diagrams
+
+Keep each diagram small (3–7 nodes or 2–4 participants). For trivial PRs with no behavioral or architectural change (typos, copy, pure config), write `N/A — no behavioral change` for each subsection instead of an empty diagram.
+
+### System flow
+
+[1 sentence: end-to-end data/control through system components affected by this PR]
+
+```mermaid
+flowchart LR
+  input[Input] --> process[Process] --> output[Output]
+```
+
+### User flow
+
+[1 sentence: primary user journey this PR enables or changes]
+
+```mermaid
+flowchart TD
+  start([User starts]) --> action[Action] --> result([Outcome])
+```
+
+### Architecture
+
+[1 sentence: modules/seams touched by this change]
+
+```mermaid
+flowchart TD
+  client[Client] --> api[API]
+  api --> service[Service]
+  service --> store[Store]
+```
+
+### Sequence
+
+[1 sentence: happy-path runtime interaction]
+
+```mermaid
+sequenceDiagram
+  participant User
+  participant API
+  participant Service
+  User->>API: request
+  API->>Service: handle
+  Service-->>API: result
+  API-->>User: response
+```
 
 ## Acceptance criteria
 
@@ -146,7 +194,7 @@ Fill every section from the actual diff and conversation context. Be specific �
 
 - [ ] [Command or manual step to verify]
 - [ ] [Additional check if needed]
-```
+````
 
 ### Create PR via MCP
 
@@ -168,6 +216,26 @@ CallMcpTool:
 
       ## Business logic
       ...
+
+      ## Diagrams
+
+      ### System flow
+      ...
+
+      ### User flow
+      ...
+
+      ### Architecture
+      ```mermaid
+      flowchart TD
+        ...
+      ```
+
+      ### Sequence
+      ```mermaid
+      sequenceDiagram
+        ...
+      ```
 
       ## Acceptance criteria
       - [ ] ...
@@ -196,11 +264,26 @@ Use matching MCP tools instead of `gh`:
 
 ## Writing guidance
 
-| Section | Purpose |
-|---------|---------|
-| **Business logic** | Domain "why" and behavior — not a file changelog |
-| **Acceptance criteria** | Checkboxes reviewers can verify before merge |
-| **What we achieve** | Success metrics and delivered value after merge |
+| Section | Purpose | Keep it simple |
+|---------|---------|----------------|
+| **Business logic** | Domain "why" and behavior — not a file changelog | — |
+| **System flow** | End-to-end data/control through system components affected by the PR | 3–6 nodes; show what enters, transforms, and exits |
+| **User flow** | User-facing steps and decisions | Start → key actions → outcome; skip edge cases |
+| **Architecture** | Modules/interfaces at seams (reuse `/codebase-design` vocabulary) | Only components this PR touches; collapse unrelated internals |
+| **Sequence** | Runtime happy-path message order | 2–4 participants; one primary path |
+| **Acceptance criteria** | Checkboxes reviewers can verify before merge | — |
+| **What we achieve** | Success metrics and delivered value after merge | — |
+
+### Mermaid hygiene
+
+- No spaces in node IDs; use camelCase, PascalCase, or underscores.
+- Quote labels that contain parentheses, commas, or colons.
+- Do not use `style` / `classDef` colors — theme handles appearance.
+- Prefer `flowchart TD` or `flowchart LR` for flows and architecture; `sequenceDiagram` for runtime.
+
+### Reuse from implement
+
+If the PR implements work from a Plan-mode HLD, adapt (don't duplicate verbatim) the architecture and sequence diagrams from that plan; add system and user flow diagrams specific to the shipped slice.
 
 **Good acceptance criterion:** "API returns 422 when `thickness_mm` is missing from tool payload."
 
@@ -216,7 +299,7 @@ Use matching MCP tools instead of `gh`:
 - [ ] Branch pushed (if PR requested)
 - [ ] owner, repo, head, base resolved from git remote + branch
 - [ ] PR covers all branch commits
-- [ ] Business logic, acceptance criteria, and outcomes filled in
+- [ ] Business logic, diagrams (or N/A for trivial changes), acceptance criteria, and outcomes filled in
 - [ ] PR created via user-github MCP (not gh CLI)
 - [ ] PR URL returned
 ```
