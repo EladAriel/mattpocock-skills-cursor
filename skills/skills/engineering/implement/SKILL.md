@@ -31,6 +31,15 @@ The `/ponytail` ladder governs *what* gets built — reuse before rewrite, stdli
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
+**Manual QA.** Write a manual QA markdown file for this ticket. Follow [MANUAL-QA.md](MANUAL-QA.md). Derive cases from the ticket acceptance criteria and what you actually built. Output path:
+
+- Feature slice known: `.scratch/<feature-slug>/qa/<NN>-<slug>-manual-qa.md`
+- Fallback (GitHub-only tracker, no slice dir): `.scratch/qa/<ticket-id>-manual-qa.md`
+
+Commit the file with the implementation.
+
 Once done, use /code-review to review the work.
 
 Commit your work to the current branch.
+
+**Done when (Agent mode):** code committed **and** manual QA file exists covering every in-scope acceptance criterion.
