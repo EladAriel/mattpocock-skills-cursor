@@ -188,6 +188,7 @@ Skills I use daily for code work.
 - **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** — Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation — never `--abort`.
 - **[wizard](./skills/engineering/wizard/SKILL.md)** — Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
 - **[ponytail](./skills/engineering/ponytail/SKILL.md)** — Forces the laziest solution that works: climb a ladder (YAGNI, reuse, stdlib, native, one line) before writing new code; never cut validation, security, or accessibility.
+- **[fullstack-llm-wiki-navigator](./skills/engineering/fullstack-llm-wiki-navigator/SKILL.md)** — Navigate local Fullstack LLM Wiki framework docs when building (Cursor-fork addition).
 
 ### Productivity
 

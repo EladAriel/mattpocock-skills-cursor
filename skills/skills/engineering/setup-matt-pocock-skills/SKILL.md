@@ -1,6 +1,6 @@
 ---
 name: setup-matt-pocock-skills
-description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, domain doc layout, and optional Cursor coding-standard rules. Run once before first use of the other engineering skills.
+description: "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, domain doc layout, and optional Cursor coding-standard rules. Run once before first use of the other engineering skills."
 disable-model-invocation: true
 ---
 
