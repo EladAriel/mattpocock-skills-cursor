@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Upstream sync (2026-08-29)
+
+Merged upstream through `6654f6b` — notable changes: `wait-what` CONTEXT-MAP fix, repo-wide em-dash removal, YAML front-matter quoting for descriptions with colons, grilling HR between questions, in-progress `implement-spec` and `retro` skills, implementation/code-review wording clarifications.
+
+
 ### ELI12 always-on (2026-08-22)
 
 - **`eli12`** — default explanation style via `.cursor/rules/eli12.mdc` (`alwaysApply: true`). Plain words and short sentences, like talking to a 12-year-old, with real engineering terms defined on first use. No metaphors, analogies, or cute nicknames. Installed by default via `setup-matt-pocock-skills` seed rules. Opt out per conversation with `stop eli12`.
