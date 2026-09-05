@@ -6,6 +6,7 @@ General workflow tools, not code-specific.
 
 Reachable only when you type them (Claude Code: `disable-model-invocation: true`; Codex: `policy.allow_implicit_invocation: false` in `agents/openai.yaml`).
 
+- **[brief-me](./brief-me/SKILL.md)**: Four-section brief for a concept or an overloaded action list so you can decide the next move.
 - **[eli12](./eli12/SKILL.md)**: Default explanation style: simple words for a 12-year-old, real engineering terms, no metaphors. Always on when `.cursor/rules/eli12.mdc` is installed.
 - **[grill-me](./grill-me/SKILL.md)**: Get relentlessly interviewed about a plan or design until every branch of the design tree is resolved.
 - **[handoff](./handoff/SKILL.md)**: Compact the current conversation into a handoff document so another agent can continue the work.

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### brief-me (2026-09-05)
+
+- **`brief-me`** — user-invoked four-section brief (Understand it / See it / Practical Example / Practical Tips) for a named concept or an overloaded action pile from planning/implementation. See it uses comparison tables or Mermaid only (eli12-safe). One next-move tip closes the brief. Distinct from `wait-what` (re-pitch) and `teach` (multi-session course).
+
 ### Upstream sync (2026-08-29)
 
 Merged upstream through `6654f6b` — notable changes: `wait-what` CONTEXT-MAP fix, repo-wide em-dash removal, YAML front-matter quoting for descriptions with colons, grilling HR between questions, in-progress `implement-spec` and `retro` skills, implementation/code-review wording clarifications.
