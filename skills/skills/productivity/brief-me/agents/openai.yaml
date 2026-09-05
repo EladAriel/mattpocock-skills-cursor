@@ -1,0 +1,5 @@
+interface:
+  display_name: "Brief Me"
+  short_description: "Four-section brief for a concept or overloaded action list"
+policy:
+  allow_implicit_invocation: false
