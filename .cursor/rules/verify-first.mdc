@@ -1,0 +1,19 @@
+---
+description: Always run an executable check (test, linter, typecheck, build) and prove zero regression before considering work complete
+alwaysApply: true
+---
+
+# Verify First
+
+Never assume code works without running an automated check.
+
+## The Verification Loop
+
+Before concluding any implementation or bug fix:
+
+1. **Run the check**: Execute the test command, linter, typechecker, or build command.
+2. **Dual check**:
+   - Verify that the target change succeeds (the new feature works or the bug is fixed).
+   - Verify that existing tests continue to pass (zero regression in untouched parts).
+3. **Show the evidence**: Display the exact command executed and the terminal output. Never declare success without showing the output.
+4. **Root cause fix**: Address the underlying problem. Do not suppress errors with `@ts-ignore`, `# type: ignore`, empty catch blocks, or dummy assertions.

@@ -23,7 +23,7 @@ The route most work travels. You have an idea and want it built.
    - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`, worked blockers-first by hand; on a real tracker the edges become native blocking links, so any ticket whose blockers are done can be grabbed: kick off **`/implement`** per ticket, **`/clear`ing context between each one**. Each ticket is self-contained, so the last one's context is disposable.
    - **No** → **`/implement`** right here, in the same context window.
 
-   Either way, **`/implement`** builds each issue by driving **`/tdd`** internally (one red-green slice at a time), then closes out by running **`/code-review`**, a two-axis review (Standards + Spec) of the diff, before committing. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, and **`/code-review`** on its own whenever you want to review a branch or PR against a fixed point.
+   Either way, **`/implement`** builds each issue by driving **`/tdd`** internally (one red-green slice at a time), runs **`/verify-work`** to prove zero regressions, then closes out by running **`/code-review`** (Standards + Spec) and **`/adversarial-review`** (adversarial gap check) before committing. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, **`/verify-work`** to confirm changes with automated evidence, and **`/code-review`** on its own whenever you want to review a branch or PR against a fixed point.
 
 ### Context hygiene
 
@@ -50,6 +50,7 @@ A starting situation that generates work, then merges onto the main flow.
 Not feature work, just upkeep.
 
 - **`/improve-codebase-architecture`** runs whenever you have a spare moment to keep the codebase good for agents to operate in. It surfaces **deepening opportunities**; picking one _generates an idea_ you can take into the main flow at `/grill-with-docs`. It's the survey that finds the candidates; **`/codebase-design`** (below) is the bench you design the chosen one on.
+- **`/batch-refactor`** organizes large-scale repetitive migrations or API updates across many files. It generates a candidate list, pilots the change on 2–3 files first, and executes in verified batches of 5–10 files so regressions are isolated to a single small batch.
 
 ## Vocabulary underneath
 
@@ -74,6 +75,8 @@ Read [PHASE-BOUNDARIES.md](PHASE-BOUNDARIES.md) for the ordered tree: the five q
 
 Off the main flow entirely.
 
+- **`/adversarial-review`**: review a diff in a fresh subagent context from an adversarial perspective. It hunts for omitted requirements, boundary edge cases, and scope creep while ignoring stylistic preferences.
+- **`/verify-work`**: run an executable test, typecheck, or build command to prove target behavior and zero regressions before declaring a task complete. Model-invoked, so the agent reaches for it at completion gates.
 - **`/grill-me`**: the same relentless interview as `/grill-with-docs`, but **stateless**: it saves nothing locally and builds no `CONTEXT.md`. Reach for it when you are **not working in a working directory** (sharpening a plan, a design, a piece of writing, anything with no repo under it). If you are in a working directory, use `/grill-with-docs` instead: it runs the same interview and leaves a paper trail, so it is strictly the better one.
 - **`/grilling`** is the interview primitive itself: rounds, the frontier, facts are the agent's job and decisions are yours. `/grill-me` and `/grill-with-docs` are the two named ways in, and `/triage`, `/wayfinder` and `/improve-codebase-architecture` all run it internally. Reach for it directly only when you want the interview with no wrapper around it.
 - **`/resolving-merge-conflicts`** works an in-progress merge or rebase conflict hunk by hunk, resolving by **intent** traced to each side's primary source rather than by picking lines, then finishes the operation. It never runs `--abort`. Standalone and off every flow: reach for it when you are already mid-conflict.

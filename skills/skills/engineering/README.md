@@ -7,6 +7,7 @@ Skills I use daily for code work.
 Reachable only when you type them (Claude Code: `disable-model-invocation: true`; Codex: `policy.allow_implicit_invocation: false` in `agents/openai.yaml`).
 
 - **[ask-matt](./ask-matt/SKILL.md)**: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
+- **[batch-refactor](./batch-refactor/SKILL.md)**: Orchestrate large-scale repetitive codebase migrations or refactors across multiple files using a staged fan-out pattern with pilot testing and verification gates.
 - **[grill-with-docs](./grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `CONTEXT.md` and ADRs inline.
 - **[triage](./triage/SKILL.md)**: Move issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)**: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
@@ -20,6 +21,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 Model- or user-reachable (rich trigger phrasing so the model can reach for them).
 
+- **[adversarial-review](./adversarial-review/SKILL.md)**: Adversarial code review in a fresh subagent context to refute an implementation against requirements, edge cases, and regression risks.
 - **[prototype](./prototype/SKILL.md)**: Build a throwaway prototype to answer a design question: a single shareable HTML file for state/logic, or several toggleable UI variations.
 
 - **[diagnosing-bugs](./diagnosing-bugs/SKILL.md)**: Disciplined diagnosis loop for hard bugs and performance regressions: build a feedback loop that goes red on this bug → minimise → hypothesise → instrument → fix → regression-test.
@@ -31,4 +33,5 @@ Model- or user-reachable (rich trigger phrasing so the model can reach for them)
 - **[fullstack-llm-wiki-navigator](./fullstack-llm-wiki-navigator/SKILL.md)**: Navigate local Fullstack LLM Wiki framework docs when building (Cursor-fork addition).
 - **[code-review](./code-review/SKILL.md)**: Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents.
 - **[resolving-merge-conflicts](./resolving-merge-conflicts/SKILL.md)**: Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation, never `--abort`.
+- **[verify-work](./verify-work/SKILL.md)**: Run an executable verification check (test suite, linter, typechecker, or build) to prove a change works and causes no regressions before declaring completion.
 - **[wizard](./wizard/SKILL.md)**: Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
