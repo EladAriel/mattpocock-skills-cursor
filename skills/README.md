@@ -167,6 +167,7 @@ Skills I use daily for code work.
 **User-invoked**
 
 - **[ask-matt](./skills/engineering/ask-matt/SKILL.md)** — Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
+- **[batch-refactor](./skills/engineering/batch-refactor/SKILL.md)** — Orchestrate large-scale repetitive codebase migrations or refactors across multiple files using a staged fan-out pattern with pilot testing and verification gates.
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)** — Grilling session that also builds your project's domain model, sharpening terminology and updating `CONTEXT.md` and ADRs inline.
 - **[triage](./skills/engineering/triage/SKILL.md)** — Move issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)** — Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
@@ -178,6 +179,7 @@ Skills I use daily for code work.
 
 **Model-invoked**
 
+- **[adversarial-review](./skills/engineering/adversarial-review/SKILL.md)** — Adversarial code review in a fresh subagent context to refute an implementation against requirements, edge cases, and regression risks.
 - **[prototype](./skills/engineering/prototype/SKILL.md)** — Build a throwaway prototype to answer a design question — a single shareable HTML file for state/logic questions, or several radically different UI variations toggleable from one route.
 - **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: build a feedback loop that goes red on this bug → minimise → hypothesise → instrument → fix → regression-test.
 - **[research](./skills/engineering/research/SKILL.md)** — Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file in the repo, run as a background agent.
@@ -186,6 +188,7 @@ Skills I use daily for code work.
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)** — Shared discipline and vocabulary for designing deep modules: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface.
 - **[code-review](./skills/engineering/code-review/SKILL.md)** — Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents so neither pollutes the other.
 - **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)** — Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation — never `--abort`.
+- **[verify-work](./skills/engineering/verify-work/SKILL.md)** — Run an executable verification check (test suite, linter, typechecker, or build) to prove a change works and causes no regressions before declaring completion.
 - **[wizard](./skills/engineering/wizard/SKILL.md)** — Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
 - **[ponytail](./skills/engineering/ponytail/SKILL.md)** — Forces the laziest solution that works: climb a ladder (YAGNI, reuse, stdlib, native, one line) before writing new code; never cut validation, security, or accessibility.
 - **[fullstack-llm-wiki-navigator](./skills/engineering/fullstack-llm-wiki-navigator/SKILL.md)** — Navigate local Fullstack LLM Wiki framework docs when building (Cursor-fork addition).

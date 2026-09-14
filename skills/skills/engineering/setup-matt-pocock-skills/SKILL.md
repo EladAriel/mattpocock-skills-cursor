@@ -73,6 +73,7 @@ Default: **install seed rules** if `.cursor/rules/` is empty or missing. If rule
 Templates (in this skill's [rules/](./rules/) folder):
 
 - `eli12.mdc` — default explanation style: simple words, real tech terms, no metaphors (`alwaysApply: true`)
+- `verify-first.mdc` — automated verification and zero-regression check before completion (`alwaysApply: true`)
 - `code-quality.mdc` — function length, nesting depth, cyclomatic complexity
 - `docstring-standards.mdc` — Python docstrings and TypeScript/JSDoc for exported functions
 - `license-compliance.mdc` — dependency license checks (`alwaysApply: true`)

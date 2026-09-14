@@ -5,8 +5,8 @@
 1. If you have codebase use `/grill-with-docs` and if you don't have use `/grill-me` to create shared language with LLM.
 2. When done we invoke the `/to-spec` skill to produce a spec (make sure you stay within the same conversation of step 1.)
 3. When done we invoke the `/to-tickets` skill to break a plan into tracer-bullet tickets with blocking edges.
-4. Work tickets in pickup order. For each ticket, invoke `/implement` (which uses `/tdd` for test-driven development).
-5. If the code need refactoring then use `improve-codebase-architecture` skill.
+4. Work tickets in pickup order. For each ticket, invoke `/implement` (which uses `/tdd` for test-driven development and `/verify-work` to prove zero regressions).
+5. If the code needs refactoring then use `improve-codebase-architecture` skill (or `batch-refactor` for wide multi-file updates).
 
 ## Fullstack AI Application Flow
 
@@ -63,7 +63,7 @@ models + migration → services → API schemas → routes → (jobs if needed)
 
 **TDD rule:** tracer-bullet RED→GREEN per behavior — never write all backend tests then all frontend tests.
 
-**Ship per issue:** `/code-review` → `/simplify` → run manual QA checklist (or Playwright MCP against hints in `.scratch/<feature>/qa/`) → `/commit-push-pr` (include simple Mermaid diagrams: system flow, user flow, architecture, sequence) → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
+**Ship per issue:** `/verify-work` (run tests + typecheck to prove zero regressions) → `/code-review` & `/adversarial-review` → `/simplify` → run manual QA checklist (or Playwright MCP against hints in `.scratch/<feature>/qa/`) → `/commit-push-pr` (include simple Mermaid diagrams: system flow, user flow, architecture, sequence) → merge (user) → mark issue complete → checkout `main`. Run the full test suite once at the end of the slice.
 
 ### 5. Refactor
 

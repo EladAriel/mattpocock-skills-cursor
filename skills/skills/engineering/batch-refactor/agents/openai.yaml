@@ -1,0 +1,5 @@
+interface:
+  display_name: "Batch Refactor"
+  short_description: "Orchestrate large-scale repetitive codebase migrations"
+policy:
+  allow_implicit_invocation: false

@@ -20,8 +20,9 @@ End-to-end flow for building a feature with these skills (see also [`WORKFLOW.md
 1. **Align** — If you have a codebase, use **grill-with-docs**; otherwise use **grill-me** to build shared language with the agent.
 2. **Spec** — In the same conversation, invoke **to-spec** to turn the discussion into a spec.
 3. **Tickets** — Invoke **to-tickets** to break the plan into tracer-bullet tickets with blocking edges.
-4. **Build** — Work tickets in pickup order, invoking **implement** for each (it uses **tdd** inside).
-5. **Refactor** — If the code needs structural work, invoke **improve-codebase-architecture**.
+4. **Build** — Work tickets in pickup order, invoking **implement** for each (it uses **tdd** inside and **verify-work** for regression checks).
+5. **Review** — Run **code-review** and **adversarial-review** on the resulting diff.
+6. **Refactor** — If the code needs structural work, invoke **improve-codebase-architecture** (or **batch-refactor** for wide migrations).
 
 ## Keeping up to date
 

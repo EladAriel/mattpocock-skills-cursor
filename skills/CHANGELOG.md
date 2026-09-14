@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Claude Code prompt library enhancements (2026-09-14)
+
+- **`verify-work`** — model-invoked verification skill requiring an executable check (test suite, typechecker, linter, or build) and dual proof (target works + zero regressions) before declaring work complete.
+- **`adversarial-review`** — model-invoked adversarial code review running in a fresh subagent context to refute diffs on requirement gaps, unhandled edge cases, and scope creep while ignoring stylistic preferences.
+- **`batch-refactor`** — user-invoked skill orchestrating wide codebase migrations using the fan-out pattern: candidate file listing, 2-3 file pilot test, and bounded batch execution with verification gates.
+- **`verify-first.mdc`** — always-on Cursor rule requiring automated checks and evidence before considering code work complete. Added to root `.cursor/rules/` and `setup-matt-pocock-skills` seed rules.
+- **`prompt-recipes`** — productivity documentation guide detailing the six foundational prompt patterns adapted from Anthropic's Claude Code prompt library for Cursor coding agents.
+
 ### brief-me (2026-09-05)
 
 - **`brief-me`** — user-invoked four-section brief (Understand it / See it / Practical Example / Practical Tips) for a named concept or an overloaded action pile from planning/implementation. See it uses comparison tables or Mermaid only (eli12-safe). One next-move tip closes the brief. Distinct from `wait-what` (re-pitch) and `teach` (multi-session course).

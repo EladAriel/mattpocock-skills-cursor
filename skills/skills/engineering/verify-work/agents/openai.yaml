@@ -1,0 +1,3 @@
+interface:
+  display_name: "Verify Work"
+  short_description: "Run verification checks and confirm zero regressions"
